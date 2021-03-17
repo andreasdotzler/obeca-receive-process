@@ -1,0 +1,4 @@
+[submodule "lib/srslte"]
+	path = lib/srslte
+	url = git@git.bitstem.com:ors/srslte.git
+	branch = a1_proof-of-concept

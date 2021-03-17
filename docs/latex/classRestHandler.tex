@@ -1,0 +1,57 @@
+\hypertarget{classRestHandler}{}\doxysection{Rest\+Handler Class Reference}
+\label{classRestHandler}\index{RestHandler@{RestHandler}}
+
+
+Collaboration diagram for Rest\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{classRestHandler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structRestHandler_1_1ChannelInfo}{Channel\+Info}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRestHandler_ab9c77049d71938d048e0ca60fb576e56}\label{classRestHandler_ab9c77049d71938d048e0ca60fb576e56}} 
+typedef std\+::function$<$ void(std\+::string antenna, unsigned fcen, double gain, unsigned sample\+\_\+rate, unsigned bandwidth)$>$ {\bfseries set\+\_\+params\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRestHandler_a671b4735033d2b842758768ade60c703}\label{classRestHandler_a671b4735033d2b842758768ade60c703}} 
+{\bfseries Rest\+Handler} (const libconfig\+::\+Config \&cfg, const std\+::string \&url, state\+\_\+t \&state, \mbox{\hyperlink{classLimeSdrReader}{Lime\+Sdr\+Reader}} \&lime, \mbox{\hyperlink{classPhy}{Phy}} \&phy, set\+\_\+params\+\_\+t set\+\_\+params)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRestHandler_a60edac82bc2a52998b0052a419723088}\label{classRestHandler_a60edac82bc2a52998b0052a419723088}} 
+std\+::vector$<$ uint8\+\_\+t $>$ {\bfseries \+\_\+ce\+\_\+values} = \{\}
+\item 
+\mbox{\Hypertarget{classRestHandler_ac712366f7a7c1112407e0c2776552f42}\label{classRestHandler_ac712366f7a7c1112407e0c2776552f42}} 
+\mbox{\hyperlink{structRestHandler_1_1ChannelInfo}{Channel\+Info}} {\bfseries \+\_\+pdsch}
+\item 
+\mbox{\Hypertarget{classRestHandler_a74976a3d616bb1aff8771c27cc3b2f28}\label{classRestHandler_a74976a3d616bb1aff8771c27cc3b2f28}} 
+\mbox{\hyperlink{structRestHandler_1_1ChannelInfo}{Channel\+Info}} {\bfseries \+\_\+mcch}
+\item 
+\mbox{\Hypertarget{classRestHandler_a97f04a15ad67f87a4c130fd616d8a2e9}\label{classRestHandler_a97f04a15ad67f87a4c130fd616d8a2e9}} 
+std\+::map$<$ uint32\+\_\+t, \mbox{\hyperlink{structRestHandler_1_1ChannelInfo}{Channel\+Info}} $>$ {\bfseries \+\_\+mch}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 43 of file Rest\+Handler.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Rest\+Handler.\+h\item 
+src/Rest\+Handler.\+cpp\end{DoxyCompactItemize}

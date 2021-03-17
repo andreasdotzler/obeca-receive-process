@@ -1,0 +1,77 @@
+\hypertarget{classRrc}{}\doxysection{Rrc Class Reference}
+\label{classRrc}\index{Rrc@{Rrc}}
+
+
+Inheritance diagram for Rrc\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRrc__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Rrc\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRrc__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRrc_a28d0afde3cc3251f4757467c4320371f}\label{classRrc_a28d0afde3cc3251f4757467c4320371f}} 
+enum {\bfseries rrc\+\_\+state\+\_\+t} \{ {\bfseries A\+C\+Q\+U\+I\+R\+E\+\_\+\+S\+IB}, 
+{\bfseries A\+C\+Q\+U\+I\+R\+E\+\_\+\+A\+R\+E\+A\+\_\+\+C\+O\+N\+F\+IG}, 
+{\bfseries S\+T\+R\+E\+A\+M\+I\+NG}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRrc_a29981ea3b126b381ee03848b33758b3f}\label{classRrc_a29981ea3b126b381ee03848b33758b3f}} 
+{\bfseries Rrc} (const libconfig\+::\+Config \&cfg, \mbox{\hyperlink{classPhy}{Phy}} \&phy, srslte\+::rlc \&rlc)
+\item 
+\mbox{\Hypertarget{classRrc_ac054603c521ca4c0976636f4ca64ec54}\label{classRrc_ac054603c521ca4c0976636f4ca64ec54}} 
+void {\bfseries max\+\_\+retx\+\_\+attempted} () override
+\item 
+\mbox{\Hypertarget{classRrc_a9b999c9d827390226c94269ca5a06b7c}\label{classRrc_a9b999c9d827390226c94269ca5a06b7c}} 
+rrc\+\_\+state\+\_\+t {\bfseries state} ()
+\item 
+\mbox{\Hypertarget{classRrc_ab39a6bee3289dcd334887e80c7558415}\label{classRrc_ab39a6bee3289dcd334887e80c7558415}} 
+void {\bfseries reset} ()
+\item 
+\mbox{\Hypertarget{classRrc_a1f229052df1551ef29f9260208f59fbd}\label{classRrc_a1f229052df1551ef29f9260208f59fbd}} 
+void {\bfseries write\+\_\+pdu\+\_\+mch} (uint32\+\_\+t lcid, srslte\+::unique\+\_\+byte\+\_\+buffer\+\_\+t pdu) override
+\item 
+\mbox{\Hypertarget{classRrc_a75e998ee115eb3d6c6a418f33cd57459}\label{classRrc_a75e998ee115eb3d6c6a418f33cd57459}} 
+void {\bfseries write\+\_\+pdu\+\_\+bcch\+\_\+dlsch} (srslte\+::unique\+\_\+byte\+\_\+buffer\+\_\+t pdu) override
+\item 
+\mbox{\Hypertarget{classRrc_aa7ed9835a80f25b3c82df3bd2f6fcbb7}\label{classRrc_aa7ed9835a80f25b3c82df3bd2f6fcbb7}} 
+void {\bfseries write\+\_\+pdu} (uint32\+\_\+t lcid, srslte\+::unique\+\_\+byte\+\_\+buffer\+\_\+t pdu) override
+\item 
+\mbox{\Hypertarget{classRrc_a6da78d8ba25202f7f0a17253feaa6575}\label{classRrc_a6da78d8ba25202f7f0a17253feaa6575}} 
+void {\bfseries write\+\_\+pdu\+\_\+bcch\+\_\+bch} (srslte\+::unique\+\_\+byte\+\_\+buffer\+\_\+t pdu) override
+\item 
+\mbox{\Hypertarget{classRrc_a08647b78f454615abee49fa5db775fc8}\label{classRrc_a08647b78f454615abee49fa5db775fc8}} 
+void {\bfseries write\+\_\+pdu\+\_\+pcch} (srslte\+::unique\+\_\+byte\+\_\+buffer\+\_\+t pdu) override
+\item 
+\mbox{\Hypertarget{classRrc_a054972b675e8204a8c622f27e3a89039}\label{classRrc_a054972b675e8204a8c622f27e3a89039}} 
+std\+::string {\bfseries get\+\_\+rb\+\_\+name} (uint32\+\_\+t lcid) override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 29 of file Rrc.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Rrc.\+h\item 
+src/Rrc.\+cpp\end{DoxyCompactItemize}
