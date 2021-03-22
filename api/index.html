@@ -1,0 +1,679 @@
+<!doctype html>
+<html>
+  <head>
+    <title>OBECA Receive Process</title>
+    <style type="text/css">
+      body {
+      	font-family: Trebuchet MS, sans-serif;
+      	font-size: 15px;
+      	color: #444;
+      	margin-right: 24px;
+      }
+      
+      h1	{
+      	font-size: 25px;
+      }
+      h2	{
+      	font-size: 20px;
+      }
+      h3	{
+      	font-size: 16px;
+      	font-weight: bold;
+      }
+      hr	{
+      	height: 1px;
+      	border: 0;
+      	color: #ddd;
+      	background-color: #ddd;
+      }
+      
+      .app-desc {
+        clear: both;
+        margin-left: 20px;
+      }
+      .param-name {
+        width: 100%;
+      }
+      .license-info {
+        margin-left: 20px;
+      }
+      
+      .license-url {
+        margin-left: 20px;
+      }
+      
+      .model {
+        margin: 0 0 0px 20px;
+      }
+      
+      .method {
+        margin-left: 20px;
+      }
+      
+      .method-notes	{
+      	margin: 10px 0 20px 0;
+      	font-size: 90%;
+      	color: #555;
+      }
+      
+      pre {
+        padding: 10px;
+        margin-bottom: 2px;
+      }
+      
+      .http-method {
+       text-transform: uppercase;
+      }
+      
+      pre.get {
+        background-color: #0f6ab4;
+      }
+      
+      pre.post {
+        background-color: #10a54a;
+      }
+      
+      pre.put {
+        background-color: #c5862b;
+      }
+      
+      pre.delete {
+        background-color: #a41e22;
+      }
+      
+      .huge	{
+      	color: #fff;
+      }
+      
+      pre.example {
+        background-color: #f3f3f3;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      
+      code {
+        white-space: pre;
+      }
+      
+      .nickname {
+        font-weight: bold;
+      }
+      
+      .method-path {
+        font-size: 1.5em;
+        background-color: #0f6ab4;
+      }
+      
+      .up {
+        float:right;
+      }
+      
+      .parameter {
+        width: 500px;
+      }
+      
+      .param {
+        width: 500px;
+        padding: 10px 0 0 20px;
+        font-weight: bold;
+      }
+      
+      .param-desc {
+        width: 700px;
+        padding: 0 0 0 20px;
+        color: #777;
+      }
+      
+      .param-type {
+        font-style: italic;
+      }
+      
+      .param-enum-header {
+      width: 700px;
+      padding: 0 0 0 60px;
+      color: #777;
+      font-weight: bold;
+      }
+      
+      .param-enum {
+      width: 700px;
+      padding: 0 0 0 80px;
+      color: #777;
+      font-style: italic;
+      }
+      
+      .field-label {
+        padding: 0;
+        margin: 0;
+        clear: both;
+      }
+      
+      .field-items	{
+      	padding: 0 0 15px 0;
+      	margin-bottom: 15px;
+      }
+      
+      .return-type {
+        clear: both;
+        padding-bottom: 10px;
+      }
+      
+      .param-header {
+        font-weight: bold;
+      }
+      
+      .method-tags {
+        text-align: right;
+      }
+      
+      .method-tag {
+        background: none repeat scroll 0% 0% #24A600;
+        border-radius: 3px;
+        padding: 2px 10px;
+        margin: 2px;
+        color: #FFF;
+        display: inline-block;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+  <h1>OBECA Receive Process</h1>
+    <div class="app-desc">OBECA Receive Process Config API</div>
+    <div class="app-desc">More information: <a href="https://helloreverb.com">https://helloreverb.com</a></div>
+    <div class="app-desc">Contact Info: <a href="obeca@ors.at">obeca@ors.at</a></div>
+    <div class="app-desc">Version: 1-oas3</div>
+    
+    <div class="license-info">AGPL v3</div>
+    <div class="license-url">https://www.gnu.org/licenses/agpl-3.0.de.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#rpApiLogGet"><code><span class="http-method">get</span> /rp-api/log</code></a></li>
+  <li><a href="#rpApiMcchStatusGet"><code><span class="http-method">get</span> /rp-api/mcch_status</code></a></li>
+  <li><a href="#rpApiMchInfoGet"><code><span class="http-method">get</span> /rp-api/mch_info</code></a></li>
+  <li><a href="#rpApiMchStatusIndexGet"><code><span class="http-method">get</span> /rp-api/mch_status/&lt;Index&gt;</code></a></li>
+  <li><a href="#rpApiPdschStatusGet"><code><span class="http-method">get</span> /rp-api/pdsch_status</code></a></li>
+  <li><a href="#rpApiSdrParamsGet"><code><span class="http-method">get</span> /rp-api/sdr_params</code></a></li>
+  <li><a href="#rpApiSdrParamsPut"><code><span class="http-method">put</span> /rp-api/sdr_params</code></a></li>
+  <li><a href="#rpApiStatusGet"><code><span class="http-method">get</span> /rp-api/status</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="rpApiLogGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /rp-api/log</code></pre></div>
+    <div class="method-summary">Get logging information (<span class="nickname">rpApiLogGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#RPlog">RPlog</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "log" : "[22:58:35.065146+01:00][info][thr15346]InitialisingLimeSDR[22:58:35.065253+01:00][info][thr15346]Launching phythread with realtime scheduling priority10[22:58:35.065402+01:00][info][thr15346]Launching phythread with realtime scheduling priority10[22:58:35.065488+01:00][info][thr15346]Launching phythread with realtime scheduling priority10[22:58:35.065587+01:00][info][thr15346]Launching phythread with realtime scheduling priority10[22:58:35.065675+01:00][info][thr15346]Launching phythread with realtime scheduling priority10[22:58:35.065766+01:00][info][thr15346]Raising mainthread to realtime scheduling priority20[DEBUG]:SYNC init with frame_size=38400,max_offset=38400and fft_size=512[DEBUG]:SYNC init with frame_size=38400,max_offset=32andfft_size=512"
+}, {
+  "log" : "[22:58:35.065146+01:00][info][thr15346]InitialisingLimeSDR[22:58:35.065253+01:00][info][thr15346]Launching phythread with realtime scheduling priority10[22:58:35.065402+01:00][info][thr15346]Launching phythread with realtime scheduling priority10[22:58:35.065488+01:00][info][thr15346]Launching phythread with realtime scheduling priority10[22:58:35.065587+01:00][info][thr15346]Launching phythread with realtime scheduling priority10[22:58:35.065675+01:00][info][thr15346]Launching phythread with realtime scheduling priority10[22:58:35.065766+01:00][info][thr15346]Raising mainthread to realtime scheduling priority20[DEBUG]:SYNC init with frame_size=38400,max_offset=38400and fft_size=512[DEBUG]:SYNC init with frame_size=38400,max_offset=32andfft_size=512"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    ok
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="rpApiMcchStatusGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /rp-api/mcch_status</code></pre></div>
+    <div class="method-summary">Get MCCH information (<span class="nickname">rpApiMcchStatusGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#RPchresponse">RPchresponse</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "bler" : 0,
+  "mcs" : 4,
+  "present" : true,
+  "ber" : 0
+}, {
+  "bler" : 0,
+  "mcs" : 4,
+  "present" : true,
+  "ber" : 0
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    ok
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="rpApiMchInfoGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /rp-api/mch_info</code></pre></div>
+    <div class="method-summary">Get MCCH information (<span class="nickname">rpApiMchInfoGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#RPmch">RPmch</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "state" : "sync",
+  "cell_id" : {
+    "lcid" : 2,
+    "dest" : "224.0.50.1:50001",
+    "tmgi" : "01901056"
+  }
+}, {
+  "state" : "sync",
+  "cell_id" : {
+    "lcid" : 2,
+    "dest" : "224.0.50.1:50001",
+    "tmgi" : "01901056"
+  }
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    ok
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="rpApiMchStatusIndexGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /rp-api/mch_status/&lt;Index&gt;</code></pre></div>
+    <div class="method-summary">Get MCH information of a service (<span class="nickname">rpApiMchStatusIndexGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#RPchresponse">RPchresponse</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "bler" : 0,
+  "mcs" : 4,
+  "present" : true,
+  "ber" : 0
+}, {
+  "bler" : 0,
+  "mcs" : 4,
+  "present" : true,
+  "ber" : 0
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    ok
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="rpApiPdschStatusGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /rp-api/pdsch_status</code></pre></div>
+    <div class="method-summary">Get PDSCH information (<span class="nickname">rpApiPdschStatusGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#RPchresponse">RPchresponse</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "bler" : 0,
+  "mcs" : 4,
+  "present" : true,
+  "ber" : 0
+}, {
+  "bler" : 0,
+  "mcs" : 4,
+  "present" : true,
+  "ber" : 0
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    ok
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="rpApiSdrParamsGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /rp-api/sdr_params</code></pre></div>
+    <div class="method-summary">Get SDR config parameters (<span class="nickname">rpApiSdrParamsGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#SDRconfig">SDRconfig</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "antenna" : "LNAW",
+  "sample_rate" : 30720000,
+  "filter_bw" : 10000000,
+  "buffer_level" : "50",
+  "frequency" : 667000000,
+  "gain" : 0.9
+}, {
+  "antenna" : "LNAW",
+  "sample_rate" : 30720000,
+  "filter_bw" : 10000000,
+  "buffer_level" : "50",
+  "frequency" : 667000000,
+  "gain" : 0.9
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    ok
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="rpApiSdrParamsPut"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /rp-api/sdr_params</code></pre></div>
+    <div class="method-summary">Set SDR config parameters (<span class="nickname">rpApiSdrParamsPut</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#SDRconfig">SDRconfig</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    ok
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    invalid frequency setting
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="rpApiStatusGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /rp-api/status</code></pre></div>
+    <div class="method-summary">Get Receive Process status (<span class="nickname">rpApiStatusGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#RPstatus">RPstatus</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "nof_prb" : 25,
+  "state" : "sync",
+  "subcarrier spacing" : 1.25,
+  "cfo" : 0.07,
+  "cell_id" : 333
+}, {
+  "nof_prb" : 25,
+  "state" : "sync",
+  "subcarrier spacing" : 1.25,
+  "cfo" : 0.07,
+  "cell_id" : 333
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    ok
+        
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#RPchresponse"><code>RPchresponse</code></a></li>
+    <li><a href="#RPlog"><code>RPlog</code></a></li>
+    <li><a href="#RPmch"><code>RPmch</code></a></li>
+    <li><a href="#RPmtchs"><code>RPmtchs</code></a></li>
+    <li><a href="#RPstatus"><code>RPstatus</code></a></li>
+    <li><a href="#SDRconfig"><code>SDRconfig</code></a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="RPchresponse"><code>RPchresponse</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">bler </div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 0</span></div>
+<div class="param">ber </div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 0</span></div>
+<div class="param">mcs </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 4</span></div>
+<div class="param">present </div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: true</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="RPlog"><code>RPlog</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">log </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: [22:58:35.065146+01:00][info][thr15346]InitialisingLimeSDR[22:58:35.065253+01:00][info][thr15346]Launching phythread with realtime scheduling priority10[22:58:35.065402+01:00][info][thr15346]Launching phythread with realtime scheduling priority10[22:58:35.065488+01:00][info][thr15346]Launching phythread with realtime scheduling priority10[22:58:35.065587+01:00][info][thr15346]Launching phythread with realtime scheduling priority10[22:58:35.065675+01:00][info][thr15346]Launching phythread with realtime scheduling priority10[22:58:35.065766+01:00][info][thr15346]Raising mainthread to realtime scheduling priority20[DEBUG]:SYNC init with frame_size&#x3D;38400,max_offset&#x3D;38400and fft_size&#x3D;512[DEBUG]:SYNC init with frame_size&#x3D;38400,max_offset&#x3D;32andfft_size&#x3D;512</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="RPmch"><code>RPmch</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: sync</span></div>
+<div class="param">cell_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#RPmtchs">RPmtchs</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="RPmtchs"><code>RPmtchs</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">dest </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 224.0.50.1:50001</span></div>
+<div class="param">lcid </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2</span></div>
+<div class="param">tmgi </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 01901056</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="RPstatus"><code>RPstatus</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">state </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: sync</span></div>
+<div class="param">cell_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 333</span></div>
+<div class="param">nof_prb </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 25</span></div>
+<div class="param">cfo </div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 0.07</span></div>
+<div class="param">subcarrier spacing </div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1.25</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SDRconfig"><code>SDRconfig</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">frequency </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 667000000</span></div>
+<div class="param">sample_rate </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 30720000</span></div>
+<div class="param">filter_bw </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 10000000</span></div>
+<div class="param">gain </div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 0.9</span></div>
+<div class="param">antenna </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: LNAW</span></div>
+<div class="param">buffer_level </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 50</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
