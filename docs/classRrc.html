@@ -69,12 +69,17 @@ $(function() {
 <div class="title">Rrc Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Simple RRC component between PHY and RLC.  
+ <a href="classRrc.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Rrc_8h_source.html">Rrc.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Rrc:</div>
 <div class="dyncontent">
 <div class="center"><img src="classRrc__inherit__graph.png" border="0" usemap="#Rrc_inherit__map" alt="Inheritance graph"/></div>
 <map name="Rrc_inherit__map" id="Rrc_inherit__map">
-<area shape="rect" title=" " alt="" coords="171,80,213,107"/>
+<area shape="rect" title="Simple RRC component between PHY and RLC." alt="" coords="171,80,213,107"/>
 <area shape="rect" title=" " alt="" coords="5,5,176,32"/>
 <area shape="rect" title=" " alt="" coords="201,5,386,32"/>
 </map>
@@ -84,7 +89,7 @@ Collaboration diagram for Rrc:</div>
 <div class="dyncontent">
 <div class="center"><img src="classRrc__coll__graph.png" border="0" usemap="#Rrc_coll__map" alt="Collaboration graph"/></div>
 <map name="Rrc_coll__map" id="Rrc_coll__map">
-<area shape="rect" title=" " alt="" coords="171,80,213,107"/>
+<area shape="rect" title="Simple RRC component between PHY and RLC." alt="" coords="171,80,213,107"/>
 <area shape="rect" title=" " alt="" coords="5,5,176,32"/>
 <area shape="rect" title=" " alt="" coords="201,5,386,32"/>
 </map>
@@ -100,8 +105,8 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a29981ea3b126b381ee03848b33758b3f"><td class="memItemLeft" align="right" valign="top"><a id="a29981ea3b126b381ee03848b33758b3f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Rrc</b> (const libconfig::Config &amp;cfg, <a class="el" href="classPhy.html">Phy</a> &amp;phy, srslte::rlc &amp;rlc)</td></tr>
+<tr class="memitem:a29981ea3b126b381ee03848b33758b3f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRrc.html#a29981ea3b126b381ee03848b33758b3f">Rrc</a> (const libconfig::Config &amp;cfg, <a class="el" href="classPhy.html">Phy</a> &amp;phy, srslte::rlc &amp;rlc)</td></tr>
+<tr class="memdesc:a29981ea3b126b381ee03848b33758b3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="classRrc.html#a29981ea3b126b381ee03848b33758b3f">More...</a><br /></td></tr>
 <tr class="separator:a29981ea3b126b381ee03848b33758b3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac054603c521ca4c0976636f4ca64ec54"><td class="memItemLeft" align="right" valign="top"><a id="ac054603c521ca4c0976636f4ca64ec54"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>max_retx_attempted</b> () override</td></tr>
@@ -112,11 +117,12 @@ rrc_state_t&#160;</td><td class="memItemRight" valign="bottom"><b>state</b> ()</
 <tr class="memitem:ab39a6bee3289dcd334887e80c7558415"><td class="memItemLeft" align="right" valign="top"><a id="ab39a6bee3289dcd334887e80c7558415"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> ()</td></tr>
 <tr class="separator:ab39a6bee3289dcd334887e80c7558415"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f229052df1551ef29f9260208f59fbd"><td class="memItemLeft" align="right" valign="top"><a id="a1f229052df1551ef29f9260208f59fbd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>write_pdu_mch</b> (uint32_t lcid, srslte::unique_byte_buffer_t pdu) override</td></tr>
+<tr class="memitem:a1f229052df1551ef29f9260208f59fbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRrc.html#a1f229052df1551ef29f9260208f59fbd">write_pdu_mch</a> (uint32_t lcid, srslte::unique_byte_buffer_t pdu) override</td></tr>
+<tr class="memdesc:a1f229052df1551ef29f9260208f59fbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle a MCH PDU.  <a href="classRrc.html#a1f229052df1551ef29f9260208f59fbd">More...</a><br /></td></tr>
 <tr class="separator:a1f229052df1551ef29f9260208f59fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75e998ee115eb3d6c6a418f33cd57459"><td class="memItemLeft" align="right" valign="top"><a id="a75e998ee115eb3d6c6a418f33cd57459"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>write_pdu_bcch_dlsch</b> (srslte::unique_byte_buffer_t pdu) override</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRrc.html#a75e998ee115eb3d6c6a418f33cd57459">write_pdu_bcch_dlsch</a> (srslte::unique_byte_buffer_t pdu) override</td></tr>
+<tr class="memdesc:a75e998ee115eb3d6c6a418f33cd57459"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle SIB1(SIB13) from BCCH/DLSCH, and set the scheduling info in PHY. <br /></td></tr>
 <tr class="separator:a75e998ee115eb3d6c6a418f33cd57459"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7ed9835a80f25b3c82df3bd2f6fcbb7"><td class="memItemLeft" align="right" valign="top"><a id="aa7ed9835a80f25b3c82df3bd2f6fcbb7"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>write_pdu</b> (uint32_t lcid, srslte::unique_byte_buffer_t pdu) override</td></tr>
@@ -132,13 +138,149 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>get_rb_name</b
 <tr class="separator:a054972b675e8204a8c622f27e3a89039"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="Rrc_8h_source.html#l00029">29</a> of file <a class="el" href="Rrc_8h_source.html">Rrc.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<div class="textblock"><p>Simple RRC component between PHY and RLC. </p>
+<p>Handles only reception of SIB1 (incl. SIB13) in CAS, and MCCH PDUs. </p>
+
+<p class="definition">Definition at line <a class="el" href="Rrc_8h_source.html#l00034">34</a> of file <a class="el" href="Rrc_8h_source.html">Rrc.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a29981ea3b126b381ee03848b33758b3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29981ea3b126b381ee03848b33758b3f">&#9670;&nbsp;</a></span>Rrc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Rrc::Rrc </td>
+          <td>(</td>
+          <td class="paramtype">const libconfig::Config &amp;&#160;</td>
+          <td class="paramname"><em>cfg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPhy.html">Phy</a> &amp;&#160;</td>
+          <td class="paramname"><em>phy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">srslte::rlc &amp;&#160;</td>
+          <td class="paramname"><em>rlc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cfg</td><td>Config singleton reference </td></tr>
+    <tr><td class="paramname">rlc</td><td>RLC reference </td></tr>
+    <tr><td class="paramname">rlc</td><td>PHY reference </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Rrc_8h_source.html#l00043">43</a> of file <a class="el" href="Rrc_8h_source.html">Rrc.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      : _cfg(cfg)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      , _rlc(rlc)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      , _phy(phy) {}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1f229052df1551ef29f9260208f59fbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f229052df1551ef29f9260208f59fbd">&#9670;&nbsp;</a></span>write_pdu_mch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Rrc::write_pdu_mch </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>lcid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">srslte::unique_byte_buffer_t&#160;</td>
+          <td class="paramname"><em>pdu</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handle a MCH PDU. </p>
+<p>Automatically creates MRB bearers for all discovered LCIDs, and sets the MBSFN configuration in PHY. </p>
+
+<p class="definition">Definition at line <a class="el" href="Rrc_8cpp_source.html#l00031">31</a> of file <a class="el" href="Rrc_8cpp_source.html">Rrc.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                                                                  {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  spdlog::trace(<span class="stringliteral">&quot;rrc: write_pdu_mch&quot;</span>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordflow">if</span> (pdu-&gt;N_bytes &lt;= 0 || pdu-&gt;N_bytes &gt;= SRSLTE_MAX_BUFFER_SIZE_BITS) {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  asn1::cbit_ref bref(pdu-&gt;msg, pdu-&gt;N_bytes);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  asn1::rrc::mcch_msg_s msg;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordflow">if</span> (msg.unpack(bref) != asn1::SRSASN_SUCCESS ||</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      msg.msg.type().value != mcch_msg_type_c::types_opts::c1) {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    spdlog::error(<span class="stringliteral">&quot;Failed to unpack MCCH message&quot;</span>);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  asn1::json_writer json_writer;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  msg.to_json(json_writer);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  spdlog::debug(<span class="stringliteral">&quot;BCCH-DLSCH message content:\n{}&quot;</span>, json_writer.to_string());</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  srslte::mcch_msg_t mcch = srslte::make_mcch_msg(msg);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="comment">// add bearers for all LCIDs</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; mcch.nof_pmch_info; i++) {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">for</span> (uint32_t j = 0; j &lt; mcch.pmch_info_list[i].nof_mbms_session_info; j++) {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      uint32_t lcid = mcch.pmch_info_list[i].mbms_session_info_list[j].lc_ch_id;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="keywordflow">if</span> (!_rlc.has_bearer_mrb(lcid)) {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        _rlc.add_bearer_mrb(lcid);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  _phy.<a class="code" href="classPhy.html#a0e62a0f08432fa5b3cc195a4268544a7">set_mbsfn_config</a>(mcch);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  _phy.<a class="code" href="classPhy.html#a1efbe222e05c3dcfe541a805aef6cf58">set_decode_mcch</a>(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  _state = STREAMING;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="Rrc_8h_source.html">Rrc.h</a></li>
 <li>src/<a class="el" href="Rrc_8cpp_source.html">Rrc.cpp</a></li>
 </ul>
 </div><!-- contents -->
+<div class="ttc" id="aclassPhy_html_a0e62a0f08432fa5b3cc195a4268544a7"><div class="ttname"><a href="classPhy.html#a0e62a0f08432fa5b3cc195a4268544a7">Phy::set_mbsfn_config</a></div><div class="ttdeci">void set_mbsfn_config(const srslte::mcch_msg_t &amp;mcch)</div><div class="ttdoc">Set MBSFN configuration values.</div><div class="ttdef"><b>Definition:</b> <a href="Phy_8cpp_source.html#l00207">Phy.cpp:207</a></div></div>
+<div class="ttc" id="aclassPhy_html_a1efbe222e05c3dcfe541a805aef6cf58"><div class="ttname"><a href="classPhy.html#a1efbe222e05c3dcfe541a805aef6cf58">Phy::set_decode_mcch</a></div><div class="ttdeci">void set_decode_mcch(bool d)</div><div class="ttdoc">Enable MCCH decoding.</div><div class="ttdef"><b>Definition:</b> <a href="Phy_8h_source.html#l00147">Phy.h:147</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

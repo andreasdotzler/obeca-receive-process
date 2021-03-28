@@ -1,0 +1,482 @@
+\hypertarget{main_8cpp}{}\doxysection{src/main.cpp File Reference}
+\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+
+
+Contains the program entry point, command line parameter handling, and the main runloop for data processing.  
+
+
+{\ttfamily \#include $<$argp.\+h$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$libconfig.\+h++$>$}\newline
+{\ttfamily \#include \char`\"{}Cas\+Frame\+Processor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Gw.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Lime\+Sdr\+Reader.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Mbsfn\+Frame\+Processor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Measurement\+File\+Writer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Phy.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Rest\+Handler.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Rrc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Version.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}spdlog/async.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}spdlog/spdlog.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}spdlog/sinks/syslog\+\_\+sink.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}srslte/srslte.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}srslte/upper/pdcp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}srslte/upper/rlc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}thread\+\_\+pool.\+hpp\char`\"{}}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structarguments}{arguments}}
+\begin{DoxyCompactList}\small\item\em Holds all options passed on the command line. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_ab242ae790f3cbed34dd19fd2df74326d}{set\+\_\+params}} (const std\+::string \&ant, unsigned fc, double g, unsigned sr, unsigned bw)
+\begin{DoxyCompactList}\small\item\em Set new S\+DR parameters and initialize resynchronisation. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{main_8cpp_a808f40e2e9d6eb5463165c031dfa3eb1}{main}} (int argc, char $\ast$$\ast$argv) -\/$>$ int
+\begin{DoxyCompactList}\small\item\em Main entry point for the program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cpp_acde468a0825fa258e397e0885b11ce08}\label{main_8cpp_acde468a0825fa258e397e0885b11ce08}} 
+void($\ast$ {\bfseries argp\+\_\+program\+\_\+version\+\_\+hook} )(F\+I\+LE $\ast$, struct argp\+\_\+state $\ast$) = print\+\_\+version
+\item 
+\mbox{\Hypertarget{main_8cpp_aaa037e59f26a80a8a2e35e6f2364004d}\label{main_8cpp_aaa037e59f26a80a8a2e35e6f2364004d}} 
+const char $\ast$ {\bfseries argp\+\_\+program\+\_\+bug\+\_\+address} = \char`\"{}Austrian Broadcasting Services $<$obeca@ors.\+at$>$\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains the program entry point, command line parameter handling, and the main runloop for data processing. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a808f40e2e9d6eb5463165c031dfa3eb1}\label{main_8cpp_a808f40e2e9d6eb5463165c031dfa3eb1}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily auto main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption}) -\/$>$ int }
+
+
+
+Main entry point for the program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Command line agument count \\
+\hline
+{\em argv} & Command line arguments \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on clean exit, -\/1 on failure 
+\end{DoxyReturn}
+
+
+Definition at line 208 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{208                                         \{}
+\DoxyCodeLine{209   \textcolor{keyword}{struct }\mbox{\hyperlink{structarguments}{arguments}} \mbox{\hyperlink{structarguments}{arguments}};}
+\DoxyCodeLine{210   \textcolor{comment}{/* Default values */}}
+\DoxyCodeLine{211   \mbox{\hyperlink{structarguments}{arguments}}.\mbox{\hyperlink{structarguments_a40d5a7fcc2357e9427c8167ad2668d62}{config\_file}} = \textcolor{stringliteral}{"/etc/rp.conf"};}
+\DoxyCodeLine{212   \mbox{\hyperlink{structarguments}{arguments}}.\mbox{\hyperlink{structarguments_afd58a0608fd0793b5b8d1f469e8a79d8}{sample\_file}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{213   \mbox{\hyperlink{structarguments}{arguments}}.\mbox{\hyperlink{structarguments_a61982d3c831a338568195be59e9b2b99}{write\_sample\_file}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{214   argp\_parse(\&argp, argc, argv, 0, \textcolor{keyword}{nullptr}, \&\mbox{\hyperlink{structarguments}{arguments}});}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216   \textcolor{comment}{// Read and parse the configuration file}}
+\DoxyCodeLine{217   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{218     cfg.readFile(\mbox{\hyperlink{structarguments}{arguments}}.\mbox{\hyperlink{structarguments_a40d5a7fcc2357e9427c8167ad2668d62}{config\_file}});}
+\DoxyCodeLine{219   \} \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} FileIOException \&fioex) \{}
+\DoxyCodeLine{220     spdlog::error(\textcolor{stringliteral}{"I/O error while reading config file at \{\}. Exiting."}, \mbox{\hyperlink{structarguments}{arguments}}.\mbox{\hyperlink{structarguments_a40d5a7fcc2357e9427c8167ad2668d62}{config\_file}});}
+\DoxyCodeLine{221     exit(1);}
+\DoxyCodeLine{222   \} \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} ParseException \&pex) \{}
+\DoxyCodeLine{223     spdlog::error(\textcolor{stringliteral}{"Config parse error at \{\}:\{\} -\/ \{\}. Exiting."},}
+\DoxyCodeLine{224         pex.getFile(), pex.getLine(), pex.getError());}
+\DoxyCodeLine{225     exit(1);}
+\DoxyCodeLine{226   \}}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228   \textcolor{comment}{// Set up logging}}
+\DoxyCodeLine{229   std::string ident = \textcolor{stringliteral}{"rp"};}
+\DoxyCodeLine{230   \textcolor{keyword}{auto} syslog\_logger = spdlog::syslog\_logger\_mt(\textcolor{stringliteral}{"syslog"}, ident, LOG\_PID | LOG\_PERROR);}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232   spdlog::set\_level(}
+\DoxyCodeLine{233       \textcolor{keyword}{static\_cast<}spdlog::level::level\_enum\textcolor{keyword}{>}(\mbox{\hyperlink{structarguments}{arguments}}.\mbox{\hyperlink{structarguments_ac439599ddb6a8b80364d6c1497ffd641}{log\_level}}));}
+\DoxyCodeLine{234   spdlog::set\_pattern(\textcolor{stringliteral}{"[\%H:\%M:\%S.\%f \%z] [\%\string^\%l\%\$] [thr \%t] \%v"});}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{236   spdlog::set\_default\_logger(syslog\_logger);}
+\DoxyCodeLine{237   spdlog::info(\textcolor{stringliteral}{"ofr-\/lrp v\{\}.\{\} starting up"}, VERSION\_MAJOR, VERSION\_MINOR);}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240   \textcolor{comment}{// Init and tune the SDR}}
+\DoxyCodeLine{241   spdlog::info(\textcolor{stringliteral}{"Initialising LimeSDR"});}
+\DoxyCodeLine{242   \mbox{\hyperlink{classLimeSdrReader}{LimeSdrReader}} lime(cfg);}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244   \textcolor{keywordflow}{if} (!lime.init(0, \mbox{\hyperlink{structarguments}{arguments}}.\mbox{\hyperlink{structarguments_afd58a0608fd0793b5b8d1f469e8a79d8}{sample\_file}}, \mbox{\hyperlink{structarguments}{arguments}}.\mbox{\hyperlink{structarguments_a61982d3c831a338568195be59e9b2b99}{write\_sample\_file}})) \{}
+\DoxyCodeLine{245     spdlog::error(\textcolor{stringliteral}{"Failed to initialize I/Q data source."});}
+\DoxyCodeLine{246     exit(1);}
+\DoxyCodeLine{247   \}}
+\DoxyCodeLine{248 }
+\DoxyCodeLine{249   cfg.lookupValue(\textcolor{stringliteral}{"sdr.search\_sample\_rate\_hz"}, sample\_rate);}
+\DoxyCodeLine{250   cfg.lookupValue(\textcolor{stringliteral}{"sdr.center\_frequency\_hz"}, frequency);}
+\DoxyCodeLine{251   cfg.lookupValue(\textcolor{stringliteral}{"sdr.normalized\_gain"}, gain);}
+\DoxyCodeLine{252   cfg.lookupValue(\textcolor{stringliteral}{"sdr.antenna"}, antenna);}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254   \textcolor{keywordflow}{if} (!lime.tune(frequency, sample\_rate, bandwidth, gain, antenna)) \{}
+\DoxyCodeLine{255     spdlog::error(\textcolor{stringliteral}{"Failed to set initial center frequency. Exiting."});}
+\DoxyCodeLine{256     exit(1);}
+\DoxyCodeLine{257   \}}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259   srslte\_verbose = \mbox{\hyperlink{structarguments}{arguments}}.\mbox{\hyperlink{structarguments_ac439599ddb6a8b80364d6c1497ffd641}{log\_level}} == 1 ? 2 : 0;}
+\DoxyCodeLine{260   srslte\_use\_standard\_symbol\_size(\textcolor{keyword}{true});}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{262   \textcolor{comment}{// Create a thread pool for the frame processors}}
+\DoxyCodeLine{263   \textcolor{keywordtype}{unsigned} thread\_cnt = 4;}
+\DoxyCodeLine{264   cfg.lookupValue(\textcolor{stringliteral}{"phy.threads"}, thread\_cnt);}
+\DoxyCodeLine{265   \textcolor{keywordtype}{int} phy\_prio = 10;}
+\DoxyCodeLine{266   cfg.lookupValue(\textcolor{stringliteral}{"phy.thread\_priority\_rt"}, phy\_prio);}
+\DoxyCodeLine{267   thread\_pool pool\{ thread\_cnt + 1, phy\_prio \};}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{269   \textcolor{comment}{// Elevate execution to real time scheduling}}
+\DoxyCodeLine{270   \textcolor{keyword}{struct }sched\_param thread\_param = \{\};}
+\DoxyCodeLine{271   thread\_param.sched\_priority = 20;}
+\DoxyCodeLine{272   cfg.lookupValue(\textcolor{stringliteral}{"phy.main\_thread\_priority\_rt"}, thread\_param.sched\_priority);}
+\DoxyCodeLine{273 }
+\DoxyCodeLine{274   spdlog::info(\textcolor{stringliteral}{"Raising main thread to realtime scheduling priority \{\}"}, thread\_param.sched\_priority);}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{276   \textcolor{keywordtype}{int} error = pthread\_setschedparam(pthread\_self(), SCHED\_RR, \&thread\_param);}
+\DoxyCodeLine{277   \textcolor{keywordflow}{if} (error != 0) \{}
+\DoxyCodeLine{278     spdlog::error(\textcolor{stringliteral}{"Cannot set main thread priority to realtime: \{\}. Thread will run at default priority."}, strerror(error));}
+\DoxyCodeLine{279   \}}
+\DoxyCodeLine{280 }
+\DoxyCodeLine{281   \textcolor{keywordtype}{bool} enable\_measurement\_file = \textcolor{keyword}{false};}
+\DoxyCodeLine{282   cfg.lookupValue(\textcolor{stringliteral}{"measurement\_file.enabled"}, enable\_measurement\_file);}
+\DoxyCodeLine{283   \mbox{\hyperlink{classMeasurementFileWriter}{MeasurementFileWriter}} measurement\_file(cfg);}
+\DoxyCodeLine{284 }
+\DoxyCodeLine{285   \textcolor{comment}{// Create the layer components: Phy, RLC, RRC and GW}}
+\DoxyCodeLine{286   \mbox{\hyperlink{classPhy}{Phy}} phy(}
+\DoxyCodeLine{287       cfg,}
+\DoxyCodeLine{288       std::bind(\&\mbox{\hyperlink{classLimeSdrReader_a33f0fc310e4b402aeea96c59bb88076c}{LimeSdrReader::getSamples}}, \&lime, \_1, \_2, \_3),  \textcolor{comment}{// NOLINT}}
+\DoxyCodeLine{289       \mbox{\hyperlink{structarguments}{arguments}}.\mbox{\hyperlink{structarguments_a3d803ad8b37824dae55db77c9d108945}{file\_bw}} * 5,}
+\DoxyCodeLine{290       \mbox{\hyperlink{structarguments}{arguments}}.\mbox{\hyperlink{structarguments_a920ee1da96c92867eb03b38aa6f0789e}{override\_nof\_prb}});}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{292   phy.init();}
+\DoxyCodeLine{293 }
+\DoxyCodeLine{294   srslte::pdcp pdcp(\textcolor{keyword}{nullptr}, \textcolor{stringliteral}{"PDCP"});}
+\DoxyCodeLine{295   srslte::rlc rlc(\textcolor{stringliteral}{"RLC"});}
+\DoxyCodeLine{296   srslte::timer\_handler timers;}
+\DoxyCodeLine{297 }
+\DoxyCodeLine{298   \mbox{\hyperlink{classRrc}{Rrc}} rrc(cfg, phy, rlc);}
+\DoxyCodeLine{299   \mbox{\hyperlink{classGw}{Gw}} gw(cfg, phy);}
+\DoxyCodeLine{300   gw.init();}
+\DoxyCodeLine{301 }
+\DoxyCodeLine{302   rlc.init(\&pdcp, \&rrc, \&timers, 0 \textcolor{comment}{/* RB\_ID\_SRB0 */});}
+\DoxyCodeLine{303   pdcp.init(\&rlc, \&rrc,  \&gw);}
+\DoxyCodeLine{304 }
+\DoxyCodeLine{305   \textcolor{keyword}{auto} srs\_level = srslte::LOG\_LEVEL\_WARNING;}
+\DoxyCodeLine{306   \textcolor{keywordflow}{switch} (\mbox{\hyperlink{structarguments}{arguments}}.\mbox{\hyperlink{structarguments_a7d86b4dfa052ecbacb73e3d13e861ea6}{srs\_log\_level}}) \{}
+\DoxyCodeLine{307     \textcolor{keywordflow}{case} 0: srs\_level = srslte::LOG\_LEVEL\_DEBUG; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{308     \textcolor{keywordflow}{case} 1: srs\_level = srslte::LOG\_LEVEL\_INFO; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{309     \textcolor{keywordflow}{case} 2: srs\_level = srslte::LOG\_LEVEL\_WARNING; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{310     \textcolor{keywordflow}{case} 3: srs\_level = srslte::LOG\_LEVEL\_ERROR; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{311     \textcolor{keywordflow}{case} 4: srs\_level = srslte::LOG\_LEVEL\_NONE; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{312   \}}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{314   \textcolor{comment}{// Configure srsLTE logging}}
+\DoxyCodeLine{315   srslte::log\_ref rlc\_log = srslte::logmap::get(\textcolor{stringliteral}{"RLC"});}
+\DoxyCodeLine{316   rlc\_log-\/>set\_level(srs\_level);}
+\DoxyCodeLine{317   rlc\_log-\/>set\_hex\_limit(128);}
+\DoxyCodeLine{318 }
+\DoxyCodeLine{319   srslte::log\_ref mac\_log = srslte::logmap::get(\textcolor{stringliteral}{"MAC"});}
+\DoxyCodeLine{320   mac\_log-\/>set\_level(srs\_level);}
+\DoxyCodeLine{321   mac\_log-\/>set\_hex\_limit(128);}
+\DoxyCodeLine{322 }
+\DoxyCodeLine{323   state\_t state = searching;}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325   \textcolor{comment}{// Create the RESTful API handler}}
+\DoxyCodeLine{326   std::string uri = \textcolor{stringliteral}{"http://0.0.0.0:3000/rp-\/api/"};}
+\DoxyCodeLine{327   cfg.lookupValue(\textcolor{stringliteral}{"restful\_api.uri"}, uri);}
+\DoxyCodeLine{328   spdlog::info(\textcolor{stringliteral}{"Starting RESTful API handler at \{\}"}, uri);}
+\DoxyCodeLine{329   \mbox{\hyperlink{classRestHandler}{RestHandler}} rest\_handler(cfg, uri, state, lime, phy, \mbox{\hyperlink{main_8cpp_ab242ae790f3cbed34dd19fd2df74326d}{set\_params}});}
+\DoxyCodeLine{330 }
+\DoxyCodeLine{331   \textcolor{comment}{// Initialize one CAS and thered\_cnt MBSFN frame processors}}
+\DoxyCodeLine{332   \mbox{\hyperlink{classCasFrameProcessor}{CasFrameProcessor}} cas\_processor(cfg, phy, rlc, rest\_handler);}
+\DoxyCodeLine{333   \textcolor{keywordflow}{if} (!cas\_processor.init()) \{}
+\DoxyCodeLine{334     spdlog::error(\textcolor{stringliteral}{"Failed to create CAS processor. Exiting."});}
+\DoxyCodeLine{335     exit(1);}
+\DoxyCodeLine{336   \}}
+\DoxyCodeLine{337 }
+\DoxyCodeLine{338   std::vector<MbsfnFrameProcessor*> mbsfn\_processors;}
+\DoxyCodeLine{339   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < thread\_cnt; i++) \{}
+\DoxyCodeLine{340     \textcolor{keyword}{auto} p = \textcolor{keyword}{new} \mbox{\hyperlink{classMbsfnFrameProcessor}{MbsfnFrameProcessor}}(cfg, rlc, phy, mac\_log, rest\_handler);}
+\DoxyCodeLine{341     \textcolor{keywordflow}{if} (!p-\/>init()) \{}
+\DoxyCodeLine{342       spdlog::error(\textcolor{stringliteral}{"Failed to create MBSFN processor. Exiting."});}
+\DoxyCodeLine{343       exit(1);}
+\DoxyCodeLine{344     \}}
+\DoxyCodeLine{345     mbsfn\_processors.push\_back(p);}
+\DoxyCodeLine{346   \}}
+\DoxyCodeLine{347 }
+\DoxyCodeLine{348   \textcolor{comment}{// Start receiving sample data}}
+\DoxyCodeLine{349   lime.start();}
+\DoxyCodeLine{350 }
+\DoxyCodeLine{351   uint32\_t tti = 0;}
+\DoxyCodeLine{352 }
+\DoxyCodeLine{353   uint32\_t measurement\_interval = 5;}
+\DoxyCodeLine{354   cfg.lookupValue(\textcolor{stringliteral}{"measurement\_file.interval\_secs"}, measurement\_interval);}
+\DoxyCodeLine{355   measurement\_interval *= 1000;}
+\DoxyCodeLine{356   uint32\_t tick = 0;}
+\DoxyCodeLine{357 }
+\DoxyCodeLine{358   \textcolor{comment}{// Initial state: searching a cell}}
+\DoxyCodeLine{359   state = searching;}
+\DoxyCodeLine{360 }
+\DoxyCodeLine{361   \textcolor{comment}{// Start the main processing loop}}
+\DoxyCodeLine{362   \textcolor{keywordflow}{for} (;;) \{}
+\DoxyCodeLine{363     \textcolor{keywordflow}{if} (state == searching) \{}
+\DoxyCodeLine{364       \textcolor{comment}{// In searching state, clear the receive buffer and try to find a cell at the configured frequency and synchronize with it}}
+\DoxyCodeLine{365       restart = \textcolor{keyword}{false};}
+\DoxyCodeLine{366       lime.clear\_buffer();}
+\DoxyCodeLine{367       \textcolor{keywordtype}{bool} cell\_found = phy.cell\_search();}
+\DoxyCodeLine{368       \textcolor{keywordflow}{if} (cell\_found) \{}
+\DoxyCodeLine{369         \textcolor{comment}{// A cell has been found. We now know the required number of PRB = bandwidth of the carrier. Set the approproiate}}
+\DoxyCodeLine{370         \textcolor{comment}{// sample rate...}}
+\DoxyCodeLine{371         \textcolor{keywordtype}{unsigned} new\_srate = srslte\_sampling\_freq\_hz(phy.nr\_prb());}
+\DoxyCodeLine{372         spdlog::info(\textcolor{stringliteral}{"Setting sample rate \{\} Mhz for \{\} PRB / \{\} Mhz channel width"}, new\_srate/1000000.0, phy.nr\_prb(),}
+\DoxyCodeLine{373             phy.nr\_prb() * 0.2);}
+\DoxyCodeLine{374         lime.stop();}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{376         bandwidth = (phy.nr\_prb() * 200000) * 1.2;}
+\DoxyCodeLine{377         lime.tune(frequency, new\_srate, bandwidth, gain, antenna);}
+\DoxyCodeLine{378         lime.start();}
+\DoxyCodeLine{379         spdlog::debug(\textcolor{stringliteral}{"Synchronizing subframe"});}
+\DoxyCodeLine{380         \textcolor{comment}{// ... and move to syncing state.}}
+\DoxyCodeLine{381         state = syncing;}
+\DoxyCodeLine{382       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{383         sleep(1);}
+\DoxyCodeLine{384       \}}
+\DoxyCodeLine{385     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (state == syncing) \{}
+\DoxyCodeLine{386       \textcolor{comment}{// In syncing state, we already know the cell we want to camp on, and the SDR is tuned to the required}}
+\DoxyCodeLine{387       \textcolor{comment}{// sample rate for its number of PRB / bandwidth. We now synchronize PSS/SSS and receive the MIB once again }}
+\DoxyCodeLine{388       \textcolor{comment}{// at this sample rate.}}
+\DoxyCodeLine{389       \textcolor{keywordtype}{unsigned} max\_frames = 200;}
+\DoxyCodeLine{390       \textcolor{keywordtype}{bool} sfn\_sync = \textcolor{keyword}{false};}
+\DoxyCodeLine{391       \textcolor{keywordflow}{while} (!sfn\_sync \&\& max\_frames-\/-\/ > 0) \{}
+\DoxyCodeLine{392         sfn\_sync = phy.synchronize\_subframe();}
+\DoxyCodeLine{393       \}}
+\DoxyCodeLine{394 }
+\DoxyCodeLine{395       \textcolor{keywordflow}{if} (max\_frames == 0 \&\& !sfn\_sync) \{}
+\DoxyCodeLine{396         \textcolor{comment}{// Failed. Back to square one: search state.}}
+\DoxyCodeLine{397         spdlog::warn(\textcolor{stringliteral}{"Synchronization failed. Going back to search state."});}
+\DoxyCodeLine{398         state = searching;}
+\DoxyCodeLine{399         sleep(1);}
+\DoxyCodeLine{400       \}}
+\DoxyCodeLine{401 }
+\DoxyCodeLine{402       \textcolor{keywordflow}{if} (sfn\_sync) \{}
+\DoxyCodeLine{403         \textcolor{comment}{// We're locked on to the cell, and have succesfully received the MIB at the target sample rate.}}
+\DoxyCodeLine{404         spdlog::info(\textcolor{stringliteral}{"Decoded MIB at target sample rate, TTI is \{\}. Subframe synchronized."}, phy.tti());}
+\DoxyCodeLine{405 }
+\DoxyCodeLine{406         \textcolor{comment}{// Set the cell parameters in the CAS and MBSFN processors}}
+\DoxyCodeLine{407         cas\_processor.set\_cell(phy.cell());}
+\DoxyCodeLine{408 }
+\DoxyCodeLine{409         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < thread\_cnt; i++) \{}
+\DoxyCodeLine{410           mbsfn\_processors[i]-\/>unlock();}
+\DoxyCodeLine{411         \}}
+\DoxyCodeLine{412 }
+\DoxyCodeLine{413         \textcolor{comment}{// Get the initial TTI / subframe ID (= system frame number * 10 + subframe number)}}
+\DoxyCodeLine{414         tti = phy.tti();}
+\DoxyCodeLine{415         \textcolor{comment}{// Reset the RRC}}
+\DoxyCodeLine{416         rrc.reset();}
+\DoxyCodeLine{417 }
+\DoxyCodeLine{418         \textcolor{comment}{// Ready to receive actual data. Go to processing state.}}
+\DoxyCodeLine{419         state = processing;}
+\DoxyCodeLine{420       \}}
+\DoxyCodeLine{421     \} \textcolor{keywordflow}{else} \{  \textcolor{comment}{// processing}}
+\DoxyCodeLine{422       \textcolor{keywordtype}{int} mb\_idx = 0;}
+\DoxyCodeLine{423       \textcolor{keywordflow}{while} (state == processing) \{}
+\DoxyCodeLine{424         tti = (tti + 1) \% 10240; \textcolor{comment}{// Clamp the TTI}}
+\DoxyCodeLine{425         \textcolor{keywordflow}{if} (tti\%40 == 0) \{ }
+\DoxyCodeLine{426           \textcolor{comment}{// This is subframe 0 in a radio frame divisible by 4, and hence a CAS frame. }}
+\DoxyCodeLine{427           \textcolor{comment}{// Get the samples from the SDR interface, hand them to a CAS processor, and start it}}
+\DoxyCodeLine{428           \textcolor{comment}{// on a thread from the pool.}}
+\DoxyCodeLine{429           \textcolor{keywordflow}{if} (!restart \&\& phy.get\_next\_frame(cas\_processor.rx\_buffer(), cas\_processor.rx\_buffer\_size())) \{}
+\DoxyCodeLine{430             spdlog::debug(\textcolor{stringliteral}{"sending tti \{\} to regular processor"}, tti);}
+\DoxyCodeLine{431             pool.push([ObjectPtr = \&cas\_processor, tti] \{}
+\DoxyCodeLine{432                 ObjectPtr-\/>process(tti);}
+\DoxyCodeLine{433                 \});}
+\DoxyCodeLine{434 }
+\DoxyCodeLine{435             \textcolor{comment}{// Set constellation diagram data and rx params for CAS in the REST API handler}}
+\DoxyCodeLine{436             rest\_handler.\_ce\_values = std::move(cas\_processor.ce\_values());}
+\DoxyCodeLine{437             rest\_handler.\_pdsch.SetData(cas\_processor.pdsch\_data());}
+\DoxyCodeLine{438           \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{439             \textcolor{comment}{// Failed to receive data, or sync lost. Go back to searching state.}}
+\DoxyCodeLine{440             state = searching;}
+\DoxyCodeLine{441             sleep(1);}
+\DoxyCodeLine{442 }
+\DoxyCodeLine{443             lime.tune(frequency, sample\_rate, bandwidth, gain, antenna);}
+\DoxyCodeLine{444             rrc.reset();}
+\DoxyCodeLine{445             phy.reset();}
+\DoxyCodeLine{446           \}}
+\DoxyCodeLine{447         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{448           \textcolor{comment}{// All other frames in FeMBMS dedicated mode are MBSFN frames.}}
+\DoxyCodeLine{449           spdlog::debug(\textcolor{stringliteral}{"sending tti \{\} to mbsfn proc \{\}"}, tti, mb\_idx);}
+\DoxyCodeLine{450 }
+\DoxyCodeLine{451           \textcolor{comment}{// Get the samples from the SDR interface, hand them to an MNSFN processor, and start it}}
+\DoxyCodeLine{452           \textcolor{comment}{// on a thread from the pool. Getting the buffer pointer from the pool also locks this processor.}}
+\DoxyCodeLine{453           \textcolor{keywordflow}{if} (!restart \&\& phy.get\_next\_frame(mbsfn\_processors[mb\_idx]-\/>get\_rx\_buffer\_and\_lock(), mbsfn\_processors[mb\_idx]-\/>rx\_buffer\_size())) \{}
+\DoxyCodeLine{454             \textcolor{keywordflow}{if} (phy.mcch\_configured()) \{}
+\DoxyCodeLine{455               \textcolor{comment}{// If data frm SIB1/SIB13 has been received in CAS, configure the processors accordingly}}
+\DoxyCodeLine{456               \textcolor{keywordflow}{if} (!mbsfn\_processors[mb\_idx]-\/>mbsfn\_configured()) \{}
+\DoxyCodeLine{457                 srslte\_scs\_t scs;}
+\DoxyCodeLine{458                 \textcolor{keywordflow}{switch} (phy.mbsfn\_subcarrier\_spacing()) \{}
+\DoxyCodeLine{459                   \textcolor{keywordflow}{case} Phy::SubcarrierSpacing::df\_15kHz:  scs = SRSLTE\_SCS\_15KHZ; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{460                   \textcolor{keywordflow}{case} Phy::SubcarrierSpacing::df\_7kHz5:  scs = SRSLTE\_SCS\_7KHZ5; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{461                   \textcolor{keywordflow}{case} Phy::SubcarrierSpacing::df\_1kHz25: scs = SRSLTE\_SCS\_1KHZ25; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{462                 \}}
+\DoxyCodeLine{463                 mbsfn\_processors[mb\_idx]-\/>set\_cell(phy.cell());}
+\DoxyCodeLine{464                 mbsfn\_processors[mb\_idx]-\/>configure\_mbsfn(phy.mbsfn\_area\_id(), scs);}
+\DoxyCodeLine{465               \}}
+\DoxyCodeLine{466               pool.push([ObjectPtr = mbsfn\_processors[mb\_idx], tti] \{}
+\DoxyCodeLine{467                 ObjectPtr-\/>process(tti);}
+\DoxyCodeLine{468               \});}
+\DoxyCodeLine{469             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{470               \textcolor{comment}{// Nothing to do yet, we lack the data from SIB1/SIB13}}
+\DoxyCodeLine{471               \textcolor{comment}{// Discard the samples and unlock the processor.}}
+\DoxyCodeLine{472               mbsfn\_processors[mb\_idx]-\/>unlock();}
+\DoxyCodeLine{473             \}}
+\DoxyCodeLine{474           \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{475             \textcolor{comment}{// Failed to receive data, or sync lost. Go back to searching state.}}
+\DoxyCodeLine{476             spdlog::warn(\textcolor{stringliteral}{"Synchronization lost while processing. Going back to searching state."});}
+\DoxyCodeLine{477             state = searching;}
+\DoxyCodeLine{478             lime.tune(frequency, sample\_rate, bandwidth, gain, antenna);}
+\DoxyCodeLine{479 }
+\DoxyCodeLine{480             sleep(1);}
+\DoxyCodeLine{481             rrc.reset();}
+\DoxyCodeLine{482             phy.reset();}
+\DoxyCodeLine{483           \}}
+\DoxyCodeLine{484           mb\_idx = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}((mb\_idx + 1) \% thread\_cnt);}
+\DoxyCodeLine{485         \}}
+\DoxyCodeLine{486 }
+\DoxyCodeLine{487         tick++;}
+\DoxyCodeLine{488         \textcolor{keywordflow}{if} (tick\%measurement\_interval == 0) \{}
+\DoxyCodeLine{489           \textcolor{comment}{// It's time to output rx info to the measurement file and to syslog.}}
+\DoxyCodeLine{490           \textcolor{comment}{// Collect the relevant info and write it out.}}
+\DoxyCodeLine{491           std::vector<std::string> cols;}
+\DoxyCodeLine{492 }
+\DoxyCodeLine{493           spdlog::info(\textcolor{stringliteral}{"CINR \{:.2f\} dB"}, cas\_processor.cinr\_db() );}
+\DoxyCodeLine{494           cols.push\_back(std::to\_string(cas\_processor.cinr\_db()));}
+\DoxyCodeLine{495 }
+\DoxyCodeLine{496           spdlog::info(\textcolor{stringliteral}{"PDSCH: MCS \{\}, BLER \{\}, BER \{\}"},}
+\DoxyCodeLine{497               rest\_handler.\_pdsch.mcs,}
+\DoxyCodeLine{498               ((rest\_handler.\_pdsch.errors * 1.0) / (rest\_handler.\_pdsch.total * 1.0)),}
+\DoxyCodeLine{499               rest\_handler.\_pdsch.ber);}
+\DoxyCodeLine{500           cols.push\_back(std::to\_string(rest\_handler.\_pdsch.mcs));}
+\DoxyCodeLine{501           cols.push\_back(std::to\_string(((rest\_handler.\_pdsch.errors * 1.0) / (rest\_handler.\_pdsch.total * 1.0))));}
+\DoxyCodeLine{502           cols.push\_back(std::to\_string(rest\_handler.\_pdsch.ber));}
+\DoxyCodeLine{503 }
+\DoxyCodeLine{504           spdlog::info(\textcolor{stringliteral}{"MCCH: MCS \{\}, BLER \{\}, BER \{\}"},}
+\DoxyCodeLine{505               rest\_handler.\_mcch.mcs,}
+\DoxyCodeLine{506               ((rest\_handler.\_mcch.errors * 1.0) / (rest\_handler.\_mcch.total * 1.0)),}
+\DoxyCodeLine{507               \textcolor{stringliteral}{"-\/"});}
+\DoxyCodeLine{508 }
+\DoxyCodeLine{509           cols.push\_back(std::to\_string(rest\_handler.\_mcch.mcs));}
+\DoxyCodeLine{510           cols.push\_back(std::to\_string(((rest\_handler.\_mcch.errors * 1.0) / (rest\_handler.\_mcch.total * 1.0))));}
+\DoxyCodeLine{511           cols.emplace\_back(\textcolor{stringliteral}{"-\/"});}
+\DoxyCodeLine{512 }
+\DoxyCodeLine{513           \textcolor{keyword}{auto} mch\_info = phy.mch\_info();}
+\DoxyCodeLine{514           \textcolor{keywordtype}{int} mch\_idx = 0;}
+\DoxyCodeLine{515           std::for\_each(std::begin(mch\_info), std::end(mch\_info), [\&cols, \&mch\_idx, \&rest\_handler](\mbox{\hyperlink{structPhy_1_1mch__info__t}{Phy::mch\_info\_t}} \textcolor{keyword}{const}\& mch) \{}
+\DoxyCodeLine{516               spdlog::info(\textcolor{stringliteral}{"MCH \{\}: MCS \{\}, BLER \{\}, BER \{\}"},}
+\DoxyCodeLine{517                   mch\_idx,}
+\DoxyCodeLine{518                   mch.mcs,}
+\DoxyCodeLine{519                   (rest\_handler.\_mch[mch\_idx].errors * 1.0) / (rest\_handler.\_mch[mch\_idx].total * 1.0),}
+\DoxyCodeLine{520                   \textcolor{stringliteral}{"-\/"});}
+\DoxyCodeLine{521               cols.push\_back(std::to\_string(mch\_idx));}
+\DoxyCodeLine{522               cols.push\_back(std::to\_string(mch.mcs));}
+\DoxyCodeLine{523               cols.push\_back(std::to\_string((rest\_handler.\_mch[mch\_idx].errors * 1.0) / (rest\_handler.\_mch[mch\_idx].total * 1.0)));}
+\DoxyCodeLine{524               cols.emplace\_back(\textcolor{stringliteral}{"-\/"});}
+\DoxyCodeLine{525 }
+\DoxyCodeLine{526               \textcolor{keywordtype}{int} mtch\_idx = 0;}
+\DoxyCodeLine{527               std::for\_each(std::begin(mch.mtchs), std::end(mch.mtchs), [\&mtch\_idx](\mbox{\hyperlink{structPhy_1_1mtch__info__t}{Phy::mtch\_info\_t}} \textcolor{keyword}{const}\& mtch) \{}
+\DoxyCodeLine{528                 spdlog::info(\textcolor{stringliteral}{"    MTCH \{\}: LCID \{\}, TMGI 0x\{\}, \{\}"},}
+\DoxyCodeLine{529                   mtch\_idx,}
+\DoxyCodeLine{530                   mtch.lcid,}
+\DoxyCodeLine{531                   mtch.tmgi,}
+\DoxyCodeLine{532                   mtch.dest);}
+\DoxyCodeLine{533                 mtch\_idx++;}
+\DoxyCodeLine{534                   \});}
+\DoxyCodeLine{535                 mch\_idx++;}
+\DoxyCodeLine{536               \});}
+\DoxyCodeLine{537           spdlog::info(\textcolor{stringliteral}{"-\/-\/-\/-\/-\/"});}
+\DoxyCodeLine{538           \textcolor{keywordflow}{if} (enable\_measurement\_file) \{}
+\DoxyCodeLine{539             measurement\_file.WriteLogValues(cols);}
+\DoxyCodeLine{540           \}}
+\DoxyCodeLine{541         \}}
+\DoxyCodeLine{542       \}}
+\DoxyCodeLine{543     \}}
+\DoxyCodeLine{544   \}}
+\DoxyCodeLine{545 }
+\DoxyCodeLine{546   \textcolor{comment}{// Main loop ended by signal. Free the MBSFN processors, and bail.}}
+\DoxyCodeLine{547   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < thread\_cnt; i++) \{}
+\DoxyCodeLine{548     \textcolor{keyword}{delete}( mbsfn\_processors[i] );}
+\DoxyCodeLine{549   \}}
+\DoxyCodeLine{550 exit:}
+\DoxyCodeLine{551   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{552 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8cpp_ab242ae790f3cbed34dd19fd2df74326d}\label{main_8cpp_ab242ae790f3cbed34dd19fd2df74326d}} 
+\index{main.cpp@{main.cpp}!set\_params@{set\_params}}
+\index{set\_params@{set\_params}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{set\_params()}{set\_params()}}
+{\footnotesize\ttfamily void set\+\_\+params (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ant,  }\item[{unsigned}]{fc,  }\item[{double}]{g,  }\item[{unsigned}]{sr,  }\item[{unsigned}]{bw }\end{DoxyParamCaption})}
+
+
+
+Set new S\+DR parameters and initialize resynchronisation. 
+
+This function is used by the R\+E\+S\+Tful A\+PI handler to modify the S\+DR params.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ant} & Name of the antenna input (For Lime\+S\+DR Mini\+: L\+N\+AW, L\+N\+AL) \\
+\hline
+{\em fc} & Center frequency to tune to (in Hz) \\
+\hline
+{\em gain} & Total system gain to set \mbox{[}0..1\mbox{]} \\
+\hline
+{\em sr} & Sample rate (in Hz) \\
+\hline
+{\em bw} & Low pass filter bandwidth (in Hz) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 187 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{187                                                                                        \{}
+\DoxyCodeLine{188   sample\_rate = sr;}
+\DoxyCodeLine{189   frequency = fc;}
+\DoxyCodeLine{190   bandwidth = bw;}
+\DoxyCodeLine{191   antenna = ant;}
+\DoxyCodeLine{192   \textcolor{keywordflow}{if} (g > 1) \{ g = 1; \}}
+\DoxyCodeLine{193   \textcolor{keywordflow}{if} (g < 0) \{ g = 0; \}}
+\DoxyCodeLine{194   gain = g;}
+\DoxyCodeLine{195   spdlog::info(\textcolor{stringliteral}{"RESTful API requesting new parameters: fc \{\}, bw \{\}, rate \{\}, gain \{\}, antenna \{\}"},}
+\DoxyCodeLine{196       frequency, bandwidth, sample\_rate, gain, antenna);}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198   restart = \textcolor{keyword}{true};}
+\DoxyCodeLine{199 \}}
+
+\end{DoxyCode}

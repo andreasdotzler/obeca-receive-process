@@ -97,7 +97,7 @@ $(function() {
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;std::mutex MbsfnFrameProcessor::_sched_stop_mutex;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;std::mutex MbsfnFrameProcessor::_rlc_mutex;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">auto</span> MbsfnFrameProcessor::init() -&gt; <span class="keywordtype">bool</span> {</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classMbsfnFrameProcessor.html#a591a67baa074ad1b40bcdf39aeb04894">   29</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="classMbsfnFrameProcessor.html#a591a67baa074ad1b40bcdf39aeb04894">MbsfnFrameProcessor::init</a>() -&gt; <span class="keywordtype">bool</span> {</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  _signal_buffer_max_samples = 3 * SRSLTE_SF_LEN_PRB(MAX_PRB);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  _signal_buffer_rx[0] = srslte_vec_cf_malloc(_signal_buffer_max_samples);</div>
@@ -140,17 +140,17 @@ $(function() {
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;MbsfnFrameProcessor::~MbsfnFrameProcessor() {</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classMbsfnFrameProcessor.html#a8d8a8c8190c5591929aebd451ef33360">   72</a></span>&#160;<a class="code" href="classMbsfnFrameProcessor.html#a8d8a8c8190c5591929aebd451ef33360">MbsfnFrameProcessor::~MbsfnFrameProcessor</a>() {</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  srslte_softbuffer_rx_free(&amp;_softbuffer);</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  srslte_ue_dl_free(&amp;_ue_dl);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordtype">void</span> MbsfnFrameProcessor::set_cell(srslte_cell_t cell) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classMbsfnFrameProcessor.html#aedfa82badad4aa5aa35caa7a424676c6">   77</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classMbsfnFrameProcessor.html#aedfa82badad4aa5aa35caa7a424676c6">MbsfnFrameProcessor::set_cell</a>(srslte_cell_t cell) {</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  _cell = cell;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  srslte_ue_dl_set_cell(&amp;_ue_dl, cell);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">auto</span> MbsfnFrameProcessor::process(uint32_t tti) -&gt; <span class="keywordtype">int</span> {</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classMbsfnFrameProcessor.html#a928e36061e1136f5f3852b21839f93ac">   82</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="classMbsfnFrameProcessor.html#a928e36061e1136f5f3852b21839f93ac">MbsfnFrameProcessor::process</a>(uint32_t tti) -&gt; <span class="keywordtype">int</span> {</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  spdlog::trace(<span class="stringliteral">&quot;Processing MBSFN TTI {}&quot;</span>, tti);</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  uint32_t sfn = tti / 10;</div>
@@ -307,7 +307,7 @@ $(function() {
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;  <span class="keywordflow">return</span> mbsfn_cfg.is_mcch ? 0 : 1;</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;}</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="keywordtype">void</span> MbsfnFrameProcessor::configure_mbsfn(uint8_t area_id, srslte_scs_t subcarrier_spacing) {</div>
+<div class="line"><a name="l00239"></a><span class="lineno"><a class="line" href="classMbsfnFrameProcessor.html#af5ae545c7dfa14930b0f623e7f59e566">  239</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classMbsfnFrameProcessor.html#af5ae545c7dfa14930b0f623e7f59e566">MbsfnFrameProcessor::configure_mbsfn</a>(uint8_t area_id, srslte_scs_t subcarrier_spacing) {</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  _sf_cfg.subcarrier_spacing = subcarrier_spacing;</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  srslte_ue_dl_set_mbsfn_subcarrier_spacing(&amp;_ue_dl, subcarrier_spacing);</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  srslte_ue_dl_set_mbsfn_area_id(&amp;_ue_dl, area_id);</div>
@@ -315,11 +315,17 @@ $(function() {
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  _mbsfn_configured = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;}</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="keyword">auto</span> MbsfnFrameProcessor::mch_data() const -&gt; std::vector&lt;uint8_t&gt;<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00247"></a><span class="lineno"><a class="line" href="classMbsfnFrameProcessor.html#aaabe5c232d7bd9b9a817c892991cebdb">  247</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="classMbsfnFrameProcessor.html#aaabe5c232d7bd9b9a817c892991cebdb">MbsfnFrameProcessor::mch_data</a>() const -&gt; std::vector&lt;uint8_t&gt;<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  <span class="keyword">const</span> uint8_t* data = <span class="keyword">reinterpret_cast&lt;</span>uint8_t*<span class="keyword">&gt;</span>(_ue_dl.pmch.d);</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  <span class="keywordflow">return</span> std::move(std::vector&lt;uint8_t&gt;( data, data + _pmch_cfg.pdsch_cfg.grant.nof_re * <span class="keyword">sizeof</span>(cf_t)));</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassMbsfnFrameProcessor_html_aaabe5c232d7bd9b9a817c892991cebdb"><div class="ttname"><a href="classMbsfnFrameProcessor.html#aaabe5c232d7bd9b9a817c892991cebdb">MbsfnFrameProcessor::mch_data</a></div><div class="ttdeci">const std::vector&lt; uint8_t &gt; mch_data() const</div><div class="ttdoc">Get the constellation diagram data (I/Q data of the subcarriers after CE)</div><div class="ttdef"><b>Definition:</b> <a href="MbsfnFrameProcessor_8cpp_source.html#l00247">MbsfnFrameProcessor.cpp:247</a></div></div>
+<div class="ttc" id="aclassMbsfnFrameProcessor_html_aedfa82badad4aa5aa35caa7a424676c6"><div class="ttname"><a href="classMbsfnFrameProcessor.html#aedfa82badad4aa5aa35caa7a424676c6">MbsfnFrameProcessor::set_cell</a></div><div class="ttdeci">void set_cell(srslte_cell_t cell)</div><div class="ttdoc">Set the parameters for the cell (Nof PRB, etc).</div><div class="ttdef"><b>Definition:</b> <a href="MbsfnFrameProcessor_8cpp_source.html#l00077">MbsfnFrameProcessor.cpp:77</a></div></div>
+<div class="ttc" id="aclassMbsfnFrameProcessor_html_a591a67baa074ad1b40bcdf39aeb04894"><div class="ttname"><a href="classMbsfnFrameProcessor.html#a591a67baa074ad1b40bcdf39aeb04894">MbsfnFrameProcessor::init</a></div><div class="ttdeci">bool init()</div><div class="ttdoc">Initialize signal- and softbuffers, init all underlying components.</div><div class="ttdef"><b>Definition:</b> <a href="MbsfnFrameProcessor_8cpp_source.html#l00029">MbsfnFrameProcessor.cpp:29</a></div></div>
+<div class="ttc" id="aclassMbsfnFrameProcessor_html_a8d8a8c8190c5591929aebd451ef33360"><div class="ttname"><a href="classMbsfnFrameProcessor.html#a8d8a8c8190c5591929aebd451ef33360">MbsfnFrameProcessor::~MbsfnFrameProcessor</a></div><div class="ttdeci">virtual ~MbsfnFrameProcessor()</div><div class="ttdoc">Default destructor.</div><div class="ttdef"><b>Definition:</b> <a href="MbsfnFrameProcessor_8cpp_source.html#l00072">MbsfnFrameProcessor.cpp:72</a></div></div>
+<div class="ttc" id="aclassMbsfnFrameProcessor_html_af5ae545c7dfa14930b0f623e7f59e566"><div class="ttname"><a href="classMbsfnFrameProcessor.html#af5ae545c7dfa14930b0f623e7f59e566">MbsfnFrameProcessor::configure_mbsfn</a></div><div class="ttdeci">void configure_mbsfn(uint8_t area_id, srslte_scs_t subcarrier_spacing)</div><div class="ttdoc">Set MBSFN parameters: area ID and subcarrier spacing.</div><div class="ttdef"><b>Definition:</b> <a href="MbsfnFrameProcessor_8cpp_source.html#l00239">MbsfnFrameProcessor.cpp:239</a></div></div>
+<div class="ttc" id="aclassMbsfnFrameProcessor_html_a928e36061e1136f5f3852b21839f93ac"><div class="ttname"><a href="classMbsfnFrameProcessor.html#a928e36061e1136f5f3852b21839f93ac">MbsfnFrameProcessor::process</a></div><div class="ttdeci">int process(uint32_t tti)</div><div class="ttdoc">Process the sample data in the signal buffer.</div><div class="ttdef"><b>Definition:</b> <a href="MbsfnFrameProcessor_8cpp_source.html#l00082">MbsfnFrameProcessor.cpp:82</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -71,56 +71,177 @@ $(function() {
 <div class="title">RestHandler Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The RESTful API handler.  
+ <a href="classRestHandler.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="RestHandler_8h_source.html">RestHandler.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for RestHandler:</div>
 <div class="dyncontent">
 <div class="center"><img src="classRestHandler__coll__graph.png" border="0" usemap="#RestHandler_coll__map" alt="Collaboration graph"/></div>
 <map name="RestHandler_coll__map" id="RestHandler_coll__map">
-<area shape="rect" title=" " alt="" coords="48,109,151,136"/>
-<area shape="rect" href="classRestHandler_1_1ChannelInfo.html" title=" " alt="" coords="5,5,193,32"/>
+<area shape="rect" title="The RESTful API handler." alt="" coords="48,109,151,136"/>
+<area shape="rect" href="classRestHandler_1_1ChannelInfo.html" title="RX Info pertaining to an SCH (MCCH/MCH or PDSCH)" alt="" coords="5,5,193,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRestHandler_1_1ChannelInfo.html">ChannelInfo</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">RX Info pertaining to an SCH (MCCH/MCH or PDSCH)  <a href="classRestHandler_1_1ChannelInfo.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:aa93267bd38c004610a09c41e01380556"><td class="memItemLeft" align="right" valign="top"><a id="aa93267bd38c004610a09c41e01380556"></a>
-typedef std::function&lt; void(const std::string &amp;antenna, unsigned fcen, double gain, unsigned sample_rate, unsigned bandwidth)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>set_params_t</b></td></tr>
+typedef std::function&lt; void(const std::string &amp;antenna, unsigned fcen, double gain, unsigned sample_rate, unsigned bandwidth)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRestHandler.html#aa93267bd38c004610a09c41e01380556">set_params_t</a></td></tr>
+<tr class="memdesc:aa93267bd38c004610a09c41e01380556"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definition of the callback for setting new reception parameters. <br /></td></tr>
 <tr class="separator:aa93267bd38c004610a09c41e01380556"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a671b4735033d2b842758768ade60c703"><td class="memItemLeft" align="right" valign="top"><a id="a671b4735033d2b842758768ade60c703"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>RestHandler</b> (const libconfig::Config &amp;cfg, const std::string &amp;url, state_t &amp;state, <a class="el" href="classLimeSdrReader.html">LimeSdrReader</a> &amp;lime, <a class="el" href="classPhy.html">Phy</a> &amp;phy, set_params_t set_params)</td></tr>
+<tr class="memitem:a671b4735033d2b842758768ade60c703"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRestHandler.html#a671b4735033d2b842758768ade60c703">RestHandler</a> (const libconfig::Config &amp;cfg, const std::string &amp;url, state_t &amp;state, <a class="el" href="classLimeSdrReader.html">LimeSdrReader</a> &amp;lime, <a class="el" href="classPhy.html">Phy</a> &amp;phy, <a class="el" href="classRestHandler.html#aa93267bd38c004610a09c41e01380556">set_params_t</a> <a class="el" href="main_8cpp.html#ab242ae790f3cbed34dd19fd2df74326d">set_params</a>)</td></tr>
+<tr class="memdesc:a671b4735033d2b842758768ade60c703"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="classRestHandler.html#a671b4735033d2b842758768ade60c703">More...</a><br /></td></tr>
 <tr class="separator:a671b4735033d2b842758768ade60c703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac870a2f75d6f8b5a1f56c4fde07cfe91"><td class="memItemLeft" align="right" valign="top"><a id="ac870a2f75d6f8b5a1f56c4fde07cfe91"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRestHandler.html#ac870a2f75d6f8b5a1f56c4fde07cfe91">~RestHandler</a> ()</td></tr>
+<tr class="memdesc:ac870a2f75d6f8b5a1f56c4fde07cfe91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br /></td></tr>
+<tr class="separator:ac870a2f75d6f8b5a1f56c4fde07cfe91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a60edac82bc2a52998b0052a419723088"><td class="memItemLeft" align="right" valign="top"><a id="a60edac82bc2a52998b0052a419723088"></a>
-std::vector&lt; uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_ce_values</b> = {}</td></tr>
+std::vector&lt; uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRestHandler.html#a60edac82bc2a52998b0052a419723088">_ce_values</a> = {}</td></tr>
+<tr class="memdesc:a60edac82bc2a52998b0052a419723088"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time domain subcarrier CE values. <br /></td></tr>
 <tr class="separator:a60edac82bc2a52998b0052a419723088"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac712366f7a7c1112407e0c2776552f42"><td class="memItemLeft" align="right" valign="top"><a id="ac712366f7a7c1112407e0c2776552f42"></a>
-<a class="el" href="classRestHandler_1_1ChannelInfo.html">ChannelInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_pdsch</b></td></tr>
+<a class="el" href="classRestHandler_1_1ChannelInfo.html">ChannelInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRestHandler.html#ac712366f7a7c1112407e0c2776552f42">_pdsch</a></td></tr>
+<tr class="memdesc:ac712366f7a7c1112407e0c2776552f42"><td class="mdescLeft">&#160;</td><td class="mdescRight">RX info for PDSCH. <br /></td></tr>
 <tr class="separator:ac712366f7a7c1112407e0c2776552f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74976a3d616bb1aff8771c27cc3b2f28"><td class="memItemLeft" align="right" valign="top"><a id="a74976a3d616bb1aff8771c27cc3b2f28"></a>
-<a class="el" href="classRestHandler_1_1ChannelInfo.html">ChannelInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_mcch</b></td></tr>
+<a class="el" href="classRestHandler_1_1ChannelInfo.html">ChannelInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRestHandler.html#a74976a3d616bb1aff8771c27cc3b2f28">_mcch</a></td></tr>
+<tr class="memdesc:a74976a3d616bb1aff8771c27cc3b2f28"><td class="mdescLeft">&#160;</td><td class="mdescRight">RX info for MCCH. <br /></td></tr>
 <tr class="separator:a74976a3d616bb1aff8771c27cc3b2f28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97f04a15ad67f87a4c130fd616d8a2e9"><td class="memItemLeft" align="right" valign="top"><a id="a97f04a15ad67f87a4c130fd616d8a2e9"></a>
-std::map&lt; uint32_t, <a class="el" href="classRestHandler_1_1ChannelInfo.html">ChannelInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_mch</b></td></tr>
+std::map&lt; uint32_t, <a class="el" href="classRestHandler_1_1ChannelInfo.html">ChannelInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRestHandler.html#a97f04a15ad67f87a4c130fd616d8a2e9">_mch</a></td></tr>
+<tr class="memdesc:a97f04a15ad67f87a4c130fd616d8a2e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">RX info for MCHs. <br /></td></tr>
 <tr class="separator:a97f04a15ad67f87a4c130fd616d8a2e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="RestHandler_8h_source.html#l00043">43</a> of file <a class="el" href="RestHandler_8h_source.html">RestHandler.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<div class="textblock"><p>The RESTful API handler. </p>
+<p>Supports GET and PUT verbs for SDR parameters, and GET for reception info </p>
+
+<p class="definition">Definition at line <a class="el" href="RestHandler_8h_source.html#l00046">46</a> of file <a class="el" href="RestHandler_8h_source.html">RestHandler.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a671b4735033d2b842758768ade60c703"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a671b4735033d2b842758768ade60c703">&#9670;&nbsp;</a></span>RestHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RestHandler::RestHandler </td>
+          <td>(</td>
+          <td class="paramtype">const libconfig::Config &amp;&#160;</td>
+          <td class="paramname"><em>cfg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>url</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">state_t &amp;&#160;</td>
+          <td class="paramname"><em>state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLimeSdrReader.html">LimeSdrReader</a> &amp;&#160;</td>
+          <td class="paramname"><em>lime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPhy.html">Phy</a> &amp;&#160;</td>
+          <td class="paramname"><em>phy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classRestHandler.html#aa93267bd38c004610a09c41e01380556">set_params_t</a>&#160;</td>
+          <td class="paramname"><em>set_params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cfg</td><td>Config singleton reference </td></tr>
+    <tr><td class="paramname">url</td><td>URL to open the server on </td></tr>
+    <tr><td class="paramname">state</td><td>Reference to the main loop sate </td></tr>
+    <tr><td class="paramname">lime</td><td>Reference to the LimeSDR reader </td></tr>
+    <tr><td class="paramname">set_params</td><td>Set parameters callback </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="RestHandler_8cpp_source.html#l00035">35</a> of file <a class="el" href="RestHandler_8cpp_source.html">RestHandler.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    : _cfg(cfg),</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      _state(state),</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      _lime(lime),</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      _phy(phy),</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      _set_params(std::move(<a class="code" href="main_8cpp.html#ab242ae790f3cbed34dd19fd2df74326d">set_params</a>)) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  http_listener_config server_config;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordflow">if</span> (url.rfind(<span class="stringliteral">&quot;https&quot;</span>, 0) == 0) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    server_config.set_ssl_context_callback(</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        [&amp;](boost::asio::ssl::context&amp; ctx) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;          std::string cert_file = <span class="stringliteral">&quot;/usr/share/obeca/cert.pem&quot;</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;          cfg.lookupValue(<span class="stringliteral">&quot;restful_api.cert&quot;</span>, cert_file);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;          std::string key_file = <span class="stringliteral">&quot;/usr/share/obeca/key.pem&quot;</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;          cfg.lookupValue(<span class="stringliteral">&quot;restful_api.key&quot;</span>, key_file);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;          ctx.set_options(boost::asio::ssl::context::default_workarounds);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;          ctx.use_certificate_chain_file(cert_file);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;          ctx.use_private_key_file(key_file, boost::asio::ssl::context::pem);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        });</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  cfg.lookupValue(<span class="stringliteral">&quot;restful_api.api_key.enabled&quot;</span>, _require_bearer_token);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordflow">if</span> (_require_bearer_token) {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    _api_key = <span class="stringliteral">&quot;106cd60-76c8-4c37-944c-df21aa690c1e&quot;</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    cfg.lookupValue(<span class="stringliteral">&quot;restful_api.api_key.key&quot;</span>, _api_key);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  _listener = std::make_unique&lt;http_listener&gt;(</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      url, server_config);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  _listener-&gt;support(methods::GET, std::bind(&amp;RestHandler::get, <span class="keyword">this</span>, std::placeholders::_1));  <span class="comment">// NOLINT</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  _listener-&gt;support(methods::PUT, std::bind(&amp;RestHandler::put, <span class="keyword">this</span>, std::placeholders::_1));  <span class="comment">// NOLINT</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  _listener-&gt;open().wait();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="RestHandler_8h_source.html">RestHandler.h</a></li>
 <li>src/<a class="el" href="RestHandler_8cpp_source.html">RestHandler.cpp</a></li>
 </ul>
 </div><!-- contents -->
+<div class="ttc" id="amain_8cpp_html_ab242ae790f3cbed34dd19fd2df74326d"><div class="ttname"><a href="main_8cpp.html#ab242ae790f3cbed34dd19fd2df74326d">set_params</a></div><div class="ttdeci">void set_params(const std::string &amp;ant, unsigned fc, double g, unsigned sr, unsigned bw)</div><div class="ttdoc">Set new SDR parameters and initialize resynchronisation.</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00187">main.cpp:187</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

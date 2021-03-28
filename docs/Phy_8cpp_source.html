@@ -108,7 +108,7 @@ $(function() {
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">const</span> uint32_t kMaxCellsToDiscover = 3;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;Phy::Phy(<span class="keyword">const</span> libconfig::Config&amp; cfg, get_samples_t cb, uint8_t cs_nof_prb,</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classPhy.html#a633a304f61bb17745c3fbc3270398dc7">   40</a></span>&#160;<a class="code" href="classPhy.html#a633a304f61bb17745c3fbc3270398dc7">Phy::Phy</a>(<span class="keyword">const</span> libconfig::Config&amp; cfg, <a class="code" href="classPhy.html#abb5010abafff250f414c94cc62668287">get_samples_t</a> cb, uint8_t cs_nof_prb,</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;         int8_t override_nof_prb)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    : _cfg(cfg),</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      _sample_cb(std::move(std::move(cb))),</div>
@@ -118,12 +118,12 @@ $(function() {
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  _mib_buffer[0] = <span class="keyword">static_cast&lt;</span>cf_t*<span class="keyword">&gt;</span>(malloc(_buffer_max_samples * <span class="keyword">sizeof</span>(cf_t)));  <span class="comment">// NOLINT</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;Phy::~Phy() {</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classPhy.html#aa33a284ef8a0ee1af8e4a5f7f676f624">   50</a></span>&#160;<a class="code" href="classPhy.html#aa33a284ef8a0ee1af8e4a5f7f676f624">Phy::~Phy</a>() {</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  srslte_ue_sync_free(&amp;_ue_sync);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  free(_mib_buffer[0]);  <span class="comment">// NOLINT</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">auto</span> Phy::synchronize_subframe() -&gt; <span class="keywordtype">bool</span> {</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classPhy.html#a4ca2174a706d11bb1b06bbdb1838c7d7">   55</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="classPhy.html#a4ca2174a706d11bb1b06bbdb1838c7d7">Phy::synchronize_subframe</a>() -&gt; <span class="keywordtype">bool</span> {</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordtype">int</span> ret = srslte_ue_sync_zerocopy(&amp;_ue_sync, _mib_buffer, _buffer_max_samples);  <span class="comment">// NOLINT</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordflow">if</span> (ret &lt; 0) {</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    spdlog::error(<span class="stringliteral">&quot;SYNC:  Error calling ue_sync_get_buffer.\n&quot;</span>);</div>
@@ -149,7 +149,7 @@ $(function() {
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">auto</span> Phy::cell_search() -&gt; <span class="keywordtype">bool</span> {</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classPhy.html#a979befc7acf476f50beaf7f1eadbc744">   81</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="classPhy.html#a979befc7acf476f50beaf7f1eadbc744">Phy::cell_search</a>() -&gt; <span class="keywordtype">bool</span> {</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  std::array&lt;srslte_ue_cellsearch_result_t, kMaxCellsToDiscover&gt; found_cells = {0};</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  uint32_t max_peak_cell = 0;</div>
@@ -218,7 +218,7 @@ $(function() {
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;}</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="keyword">auto</span> Phy::init() -&gt; <span class="keywordtype">bool</span> {</div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="classPhy.html#a8fd1e69f34fffed128331951dd95bb00">  150</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="classPhy.html#a8fd1e69f34fffed128331951dd95bb00">Phy::init</a>() -&gt; <span class="keywordtype">bool</span> {</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  <span class="keywordflow">if</span> (srslte_ue_cellsearch_init_multi_prb_cp(&amp;_cell_search, 8, receive_callback, 1,</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                                      <span class="keyword">this</span>, _cs_nof_prb, <span class="keyword">true</span>) != 0) {</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    spdlog::error(<span class="stringliteral">&quot;Phy: error while initiating UE cell search\n&quot;</span>);</div>
@@ -246,11 +246,11 @@ $(function() {
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;}</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="keyword">auto</span> Phy::get_next_frame(cf_t** buffer, uint32_t size) -&gt; <span class="keywordtype">bool</span> {</div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="classPhy.html#a41842c3bcb76b98bf73980a45d137267">  178</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="classPhy.html#a41842c3bcb76b98bf73980a45d137267">Phy::get_next_frame</a>(cf_t** buffer, uint32_t size) -&gt; <span class="keywordtype">bool</span> {</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  <span class="keywordflow">return</span> 1 == srslte_ue_sync_zerocopy(&amp;_ue_sync, buffer, size);</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;}</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="keywordtype">void</span> Phy::set_mch_scheduling_info(<span class="keyword">const</span> srslte::sib13_t&amp; sib13) {</div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="classPhy.html#ae9e86fc3092bd8edf9bbf7607b76fd1f">  182</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classPhy.html#ae9e86fc3092bd8edf9bbf7607b76fd1f">Phy::set_mch_scheduling_info</a>(<span class="keyword">const</span> srslte::sib13_t&amp; sib13) {</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  <span class="keywordflow">if</span> (sib13.nof_mbsfn_area_info &gt; 1) {</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    spdlog::warn(<span class="stringliteral">&quot;SIB13 has {} MBSFN area info elements - only 1 supported&quot;</span>, sib13.nof_mbsfn_area_info);</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  }</div>
@@ -275,17 +275,17 @@ $(function() {
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  }</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;}</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="keywordtype">void</span> Phy::set_mbsfn_config(<span class="keyword">const</span> srslte::mcch_msg_t&amp; mcch) {</div>
+<div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="classPhy.html#a0e62a0f08432fa5b3cc195a4268544a7">  207</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classPhy.html#a0e62a0f08432fa5b3cc195a4268544a7">Phy::set_mbsfn_config</a>(<span class="keyword">const</span> srslte::mcch_msg_t&amp; mcch) {</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  _mcch = mcch;</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  _mch_configured = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  _mch_info.clear();</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; _mcch.nof_pmch_info; i++) {</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    mch_info_t mch_info;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <a class="code" href="structPhy_1_1mch__info__t.html">mch_info_t</a> mch_info;</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    mch_info.mcs = _mcch.pmch_info_list[i].data_mcs;</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordflow">for</span> (uint32_t j = 0; j &lt; _mcch.pmch_info_list[i].nof_mbms_session_info; j++) {</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;      mtch_info_t mtch_info;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;      <a class="code" href="structPhy_1_1mtch__info__t.html">mtch_info_t</a> mtch_info;</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      mtch_info.lcid = _mcch.pmch_info_list[i].mbms_session_info_list[j].lc_ch_id;</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;      std::string tmgi;</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 1; k &lt; 3; k++) {</div>
@@ -301,7 +301,7 @@ $(function() {
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  }</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;}</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="keyword">auto</span> Phy::mbsfn_config_for_tti(uint32_t tti, <span class="keywordtype">unsigned</span>&amp; area)</div>
+<div class="line"><a name="l00233"></a><span class="lineno"><a class="line" href="classPhy.html#a0190361cfe7090a4022ff8625dadc43e">  233</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="classPhy.html#a0190361cfe7090a4022ff8625dadc43e">Phy::mbsfn_config_for_tti</a>(uint32_t tti, <span class="keywordtype">unsigned</span>&amp; area)</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    -&gt; srslte_mbsfn_cfg_t {</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  srslte_mbsfn_cfg_t cfg;</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;  cfg.enable                  = <span class="keyword">false</span>;</div>
@@ -358,7 +358,19 @@ $(function() {
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;  <span class="keywordflow">return</span> cfg;</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassPhy_html"><div class="ttname"><a href="classPhy.html">Phy</a></div><div class="ttdef"><b>Definition:</b> <a href="Phy_8h_source.html#l00038">Phy.h:38</a></div></div>
+<div class="ttc" id="aclassPhy_html_ae9e86fc3092bd8edf9bbf7607b76fd1f"><div class="ttname"><a href="classPhy.html#ae9e86fc3092bd8edf9bbf7607b76fd1f">Phy::set_mch_scheduling_info</a></div><div class="ttdeci">void set_mch_scheduling_info(const srslte::sib13_t &amp;sib13)</div><div class="ttdoc">Set the values received in SIB13.</div><div class="ttdef"><b>Definition:</b> <a href="Phy_8cpp_source.html#l00182">Phy.cpp:182</a></div></div>
+<div class="ttc" id="aclassPhy_html_aa33a284ef8a0ee1af8e4a5f7f676f624"><div class="ttname"><a href="classPhy.html#aa33a284ef8a0ee1af8e4a5f7f676f624">Phy::~Phy</a></div><div class="ttdeci">virtual ~Phy()</div><div class="ttdoc">Default destructor.</div><div class="ttdef"><b>Definition:</b> <a href="Phy_8cpp_source.html#l00050">Phy.cpp:50</a></div></div>
+<div class="ttc" id="aclassPhy_html_a0190361cfe7090a4022ff8625dadc43e"><div class="ttname"><a href="classPhy.html#a0190361cfe7090a4022ff8625dadc43e">Phy::mbsfn_config_for_tti</a></div><div class="ttdeci">srslte_mbsfn_cfg_t mbsfn_config_for_tti(uint32_t tti, unsigned &amp;area)</div><div class="ttdoc">Returns the MBSFN configuration (MCS, etc) for the subframe with the passed TTI.</div><div class="ttdef"><b>Definition:</b> <a href="Phy_8cpp_source.html#l00233">Phy.cpp:233</a></div></div>
+<div class="ttc" id="aclassPhy_html"><div class="ttname"><a href="classPhy.html">Phy</a></div><div class="ttdoc">The PHY component.</div><div class="ttdef"><b>Definition:</b> <a href="Phy_8h_source.html#l00043">Phy.h:43</a></div></div>
+<div class="ttc" id="astructPhy_1_1mtch__info__t_html"><div class="ttname"><a href="structPhy_1_1mtch__info__t.html">Phy::mtch_info_t</a></div><div class="ttdef"><b>Definition:</b> <a href="Phy_8h_source.html#l00149">Phy.h:149</a></div></div>
+<div class="ttc" id="aclassPhy_html_abb5010abafff250f414c94cc62668287"><div class="ttname"><a href="classPhy.html#abb5010abafff250f414c94cc62668287">Phy::get_samples_t</a></div><div class="ttdeci">std::function&lt; int(cf_t *data, uint32_t nsamples, srslte_timestamp_t *rx_time)&gt; get_samples_t</div><div class="ttdoc">Definition of the callback function used to fetch samples from the SDR.</div><div class="ttdef"><b>Definition:</b> <a href="Phy_8h_source.html#l00048">Phy.h:48</a></div></div>
+<div class="ttc" id="aclassPhy_html_a41842c3bcb76b98bf73980a45d137267"><div class="ttname"><a href="classPhy.html#a41842c3bcb76b98bf73980a45d137267">Phy::get_next_frame</a></div><div class="ttdeci">bool get_next_frame(cf_t **buffer, uint32_t size)</div><div class="ttdoc">Get the sample data for the next subframe.</div><div class="ttdef"><b>Definition:</b> <a href="Phy_8cpp_source.html#l00178">Phy.cpp:178</a></div></div>
+<div class="ttc" id="aclassPhy_html_a8fd1e69f34fffed128331951dd95bb00"><div class="ttname"><a href="classPhy.html#a8fd1e69f34fffed128331951dd95bb00">Phy::init</a></div><div class="ttdeci">bool init()</div><div class="ttdoc">Initialize the underlying components.</div><div class="ttdef"><b>Definition:</b> <a href="Phy_8cpp_source.html#l00150">Phy.cpp:150</a></div></div>
+<div class="ttc" id="aclassPhy_html_a0e62a0f08432fa5b3cc195a4268544a7"><div class="ttname"><a href="classPhy.html#a0e62a0f08432fa5b3cc195a4268544a7">Phy::set_mbsfn_config</a></div><div class="ttdeci">void set_mbsfn_config(const srslte::mcch_msg_t &amp;mcch)</div><div class="ttdoc">Set MBSFN configuration values.</div><div class="ttdef"><b>Definition:</b> <a href="Phy_8cpp_source.html#l00207">Phy.cpp:207</a></div></div>
+<div class="ttc" id="aclassPhy_html_a4ca2174a706d11bb1b06bbdb1838c7d7"><div class="ttname"><a href="classPhy.html#a4ca2174a706d11bb1b06bbdb1838c7d7">Phy::synchronize_subframe</a></div><div class="ttdeci">bool synchronize_subframe()</div><div class="ttdoc">Synchronizes PSS/SSS and tries to deocode the MIB.</div><div class="ttdef"><b>Definition:</b> <a href="Phy_8cpp_source.html#l00055">Phy.cpp:55</a></div></div>
+<div class="ttc" id="aclassPhy_html_a979befc7acf476f50beaf7f1eadbc744"><div class="ttname"><a href="classPhy.html#a979befc7acf476f50beaf7f1eadbc744">Phy::cell_search</a></div><div class="ttdeci">bool cell_search()</div><div class="ttdoc">Search for a cell.</div><div class="ttdef"><b>Definition:</b> <a href="Phy_8cpp_source.html#l00081">Phy.cpp:81</a></div></div>
+<div class="ttc" id="astructPhy_1_1mch__info__t_html"><div class="ttname"><a href="structPhy_1_1mch__info__t.html">Phy::mch_info_t</a></div><div class="ttdef"><b>Definition:</b> <a href="Phy_8h_source.html#l00154">Phy.h:154</a></div></div>
+<div class="ttc" id="aclassPhy_html_a633a304f61bb17745c3fbc3270398dc7"><div class="ttname"><a href="classPhy.html#a633a304f61bb17745c3fbc3270398dc7">Phy::Phy</a></div><div class="ttdeci">Phy(const libconfig::Config &amp;cfg, get_samples_t cb, uint8_t cs_nof_prb, int8_t override_nof_prb)</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition:</b> <a href="Phy_8cpp_source.html#l00040">Phy.cpp:40</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

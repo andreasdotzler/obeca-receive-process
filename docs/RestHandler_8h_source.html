@@ -111,61 +111,72 @@ $(function() {
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> { searching, syncing, processing } state_t;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classRestHandler.html">   43</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRestHandler.html">RestHandler</a> {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">typedef</span> std::function&lt;void(<span class="keyword">const</span> std::string&amp; antenna, <span class="keywordtype">unsigned</span> fcen, <span class="keywordtype">double</span> gain, <span class="keywordtype">unsigned</span> sample_rate, <span class="keywordtype">unsigned</span> bandwidth)&gt; set_params_t;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classRestHandler.html">RestHandler</a>(<span class="keyword">const</span> libconfig::Config&amp; cfg, <span class="keyword">const</span> std::string&amp; url, state_t&amp; state,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <a class="code" href="classLimeSdrReader.html">LimeSdrReader</a>&amp; lime, <a class="code" href="classPhy.html">Phy</a>&amp; phy, set_params_t set_params);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classRestHandler.html">RestHandler</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classRestHandler_1_1ChannelInfo.html">   51</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classRestHandler_1_1ChannelInfo.html">ChannelInfo</a> {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">void</span> SetData( std::vector&lt;uint8_t&gt; data) {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;          std::lock_guard&lt;std::mutex&gt; lock(_data_mutex);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;          _data = data;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        };</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        std::vector&lt;uint8_t&gt; GetData() { </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;          std::lock_guard&lt;std::mutex&gt; lock(_data_mutex);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;          <span class="keywordflow">return</span> _data; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        };</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="keywordtype">bool</span> present = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keywordtype">int</span> mcs = 0;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keywordtype">double</span> ber;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      <span class="keywordtype">unsigned</span> total = 1;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="keywordtype">unsigned</span> errors = 0;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      std::vector&lt;uint8_t&gt; _data = {};</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      std::mutex _data_mutex;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    };</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    std::vector&lt;uint8_t&gt; _ce_values = {};</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    ChannelInfo _pdsch;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    ChannelInfo _mcch;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    std::map&lt;uint32_t, ChannelInfo&gt; _mch;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> get(web::http::http_request message);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> put(web::http::http_request message);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">const</span> libconfig::Config&amp; _cfg;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    std::unique_ptr&lt;web::http::experimental::listener::http_listener&gt; _listener;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    state_t&amp; _state;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="classLimeSdrReader.html">LimeSdrReader</a>&amp; _lime;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="classPhy.html">Phy</a>&amp; _phy;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    set_params_t _set_params;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">bool</span> _require_bearer_token = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    std::string _api_key;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;};</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classRestHandler.html">   46</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRestHandler.html">RestHandler</a> {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classRestHandler.html#aa93267bd38c004610a09c41e01380556">   51</a></span>&#160;    <span class="keyword">typedef</span> std::function&lt;void(<span class="keyword">const</span> std::string&amp; antenna, <span class="keywordtype">unsigned</span> fcen, <span class="keywordtype">double</span> gain, <span class="keywordtype">unsigned</span> sample_rate, <span class="keywordtype">unsigned</span> bandwidth)&gt; <a class="code" href="classRestHandler.html#aa93267bd38c004610a09c41e01380556">set_params_t</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="classRestHandler.html#a671b4735033d2b842758768ade60c703">RestHandler</a>(<span class="keyword">const</span> libconfig::Config&amp; cfg, <span class="keyword">const</span> std::string&amp; url, state_t&amp; state,</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="classLimeSdrReader.html">LimeSdrReader</a>&amp; lime, <a class="code" href="classPhy.html">Phy</a>&amp; phy, <a class="code" href="classRestHandler.html#aa93267bd38c004610a09c41e01380556">set_params_t</a> <a class="code" href="main_8cpp.html#ab242ae790f3cbed34dd19fd2df74326d">set_params</a>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classRestHandler.html#ac870a2f75d6f8b5a1f56c4fde07cfe91">~RestHandler</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classRestHandler_1_1ChannelInfo.html">   72</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classRestHandler_1_1ChannelInfo.html">ChannelInfo</a> {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">void</span> SetData( std::vector&lt;uint8_t&gt; data) {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;          std::lock_guard&lt;std::mutex&gt; lock(_data_mutex);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;          _data = data;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        };</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        std::vector&lt;uint8_t&gt; GetData() { </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;          std::lock_guard&lt;std::mutex&gt; lock(_data_mutex);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;          <span class="keywordflow">return</span> _data; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        };</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordtype">bool</span> present = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordtype">int</span> mcs = 0;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">double</span> ber;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordtype">unsigned</span> total = 1;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordtype">unsigned</span> errors = 0;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        std::vector&lt;uint8_t&gt; _data = {};</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        std::mutex _data_mutex;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    };</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classRestHandler.html#a60edac82bc2a52998b0052a419723088">   95</a></span>&#160;    std::vector&lt;uint8_t&gt; <a class="code" href="classRestHandler.html#a60edac82bc2a52998b0052a419723088">_ce_values</a> = {};</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classRestHandler.html#ac712366f7a7c1112407e0c2776552f42">  100</a></span>&#160;    <a class="code" href="classRestHandler_1_1ChannelInfo.html">ChannelInfo</a> <a class="code" href="classRestHandler.html#ac712366f7a7c1112407e0c2776552f42">_pdsch</a>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="classRestHandler.html#a74976a3d616bb1aff8771c27cc3b2f28">  105</a></span>&#160;    <a class="code" href="classRestHandler_1_1ChannelInfo.html">ChannelInfo</a> <a class="code" href="classRestHandler.html#a74976a3d616bb1aff8771c27cc3b2f28">_mcch</a>;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="classRestHandler.html#a97f04a15ad67f87a4c130fd616d8a2e9">  110</a></span>&#160;    std::map&lt;uint32_t, ChannelInfo&gt; <a class="code" href="classRestHandler.html#a97f04a15ad67f87a4c130fd616d8a2e9">_mch</a>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">void</span> get(web::http::http_request message);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">void</span> put(web::http::http_request message);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">const</span> libconfig::Config&amp; _cfg;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    std::unique_ptr&lt;web::http::experimental::listener::http_listener&gt; _listener;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    state_t&amp; _state;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <a class="code" href="classLimeSdrReader.html">LimeSdrReader</a>&amp; _lime;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <a class="code" href="classPhy.html">Phy</a>&amp; _phy;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <a class="code" href="classRestHandler.html#aa93267bd38c004610a09c41e01380556">set_params_t</a> _set_params;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">bool</span> _require_bearer_token = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    std::string _api_key;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassPhy_html"><div class="ttname"><a href="classPhy.html">Phy</a></div><div class="ttdef"><b>Definition:</b> <a href="Phy_8h_source.html#l00038">Phy.h:38</a></div></div>
-<div class="ttc" id="aclassRestHandler_1_1ChannelInfo_html"><div class="ttname"><a href="classRestHandler_1_1ChannelInfo.html">RestHandler::ChannelInfo</a></div><div class="ttdef"><b>Definition:</b> <a href="RestHandler_8h_source.html#l00051">RestHandler.h:51</a></div></div>
-<div class="ttc" id="aclassRestHandler_html"><div class="ttname"><a href="classRestHandler.html">RestHandler</a></div><div class="ttdef"><b>Definition:</b> <a href="RestHandler_8h_source.html#l00043">RestHandler.h:43</a></div></div>
-<div class="ttc" id="aclassLimeSdrReader_html"><div class="ttname"><a href="classLimeSdrReader.html">LimeSdrReader</a></div><div class="ttdef"><b>Definition:</b> <a href="LimeSdrReader_8h_source.html#l00030">LimeSdrReader.h:30</a></div></div>
+<div class="ttc" id="aclassRestHandler_html_ac712366f7a7c1112407e0c2776552f42"><div class="ttname"><a href="classRestHandler.html#ac712366f7a7c1112407e0c2776552f42">RestHandler::_pdsch</a></div><div class="ttdeci">ChannelInfo _pdsch</div><div class="ttdoc">RX info for PDSCH.</div><div class="ttdef"><b>Definition:</b> <a href="RestHandler_8h_source.html#l00100">RestHandler.h:100</a></div></div>
+<div class="ttc" id="aclassPhy_html"><div class="ttname"><a href="classPhy.html">Phy</a></div><div class="ttdoc">The PHY component.</div><div class="ttdef"><b>Definition:</b> <a href="Phy_8h_source.html#l00043">Phy.h:43</a></div></div>
+<div class="ttc" id="aclassRestHandler_1_1ChannelInfo_html"><div class="ttname"><a href="classRestHandler_1_1ChannelInfo.html">RestHandler::ChannelInfo</a></div><div class="ttdoc">RX Info pertaining to an SCH (MCCH/MCH or PDSCH)</div><div class="ttdef"><b>Definition:</b> <a href="RestHandler_8h_source.html#l00072">RestHandler.h:72</a></div></div>
+<div class="ttc" id="aclassRestHandler_html_ac870a2f75d6f8b5a1f56c4fde07cfe91"><div class="ttname"><a href="classRestHandler.html#ac870a2f75d6f8b5a1f56c4fde07cfe91">RestHandler::~RestHandler</a></div><div class="ttdeci">virtual ~RestHandler()</div><div class="ttdoc">Default destructor.</div></div>
+<div class="ttc" id="amain_8cpp_html_ab242ae790f3cbed34dd19fd2df74326d"><div class="ttname"><a href="main_8cpp.html#ab242ae790f3cbed34dd19fd2df74326d">set_params</a></div><div class="ttdeci">void set_params(const std::string &amp;ant, unsigned fc, double g, unsigned sr, unsigned bw)</div><div class="ttdoc">Set new SDR parameters and initialize resynchronisation.</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00187">main.cpp:187</a></div></div>
+<div class="ttc" id="aclassRestHandler_html_aa93267bd38c004610a09c41e01380556"><div class="ttname"><a href="classRestHandler.html#aa93267bd38c004610a09c41e01380556">RestHandler::set_params_t</a></div><div class="ttdeci">std::function&lt; void(const std::string &amp;antenna, unsigned fcen, double gain, unsigned sample_rate, unsigned bandwidth)&gt; set_params_t</div><div class="ttdoc">Definition of the callback for setting new reception parameters.</div><div class="ttdef"><b>Definition:</b> <a href="RestHandler_8h_source.html#l00051">RestHandler.h:51</a></div></div>
+<div class="ttc" id="aclassRestHandler_html_a97f04a15ad67f87a4c130fd616d8a2e9"><div class="ttname"><a href="classRestHandler.html#a97f04a15ad67f87a4c130fd616d8a2e9">RestHandler::_mch</a></div><div class="ttdeci">std::map&lt; uint32_t, ChannelInfo &gt; _mch</div><div class="ttdoc">RX info for MCHs.</div><div class="ttdef"><b>Definition:</b> <a href="RestHandler_8h_source.html#l00110">RestHandler.h:110</a></div></div>
+<div class="ttc" id="aclassRestHandler_html_a60edac82bc2a52998b0052a419723088"><div class="ttname"><a href="classRestHandler.html#a60edac82bc2a52998b0052a419723088">RestHandler::_ce_values</a></div><div class="ttdeci">std::vector&lt; uint8_t &gt; _ce_values</div><div class="ttdoc">Time domain subcarrier CE values.</div><div class="ttdef"><b>Definition:</b> <a href="RestHandler_8h_source.html#l00095">RestHandler.h:95</a></div></div>
+<div class="ttc" id="aclassRestHandler_html"><div class="ttname"><a href="classRestHandler.html">RestHandler</a></div><div class="ttdoc">The RESTful API handler.</div><div class="ttdef"><b>Definition:</b> <a href="RestHandler_8h_source.html#l00046">RestHandler.h:46</a></div></div>
+<div class="ttc" id="aclassRestHandler_html_a74976a3d616bb1aff8771c27cc3b2f28"><div class="ttname"><a href="classRestHandler.html#a74976a3d616bb1aff8771c27cc3b2f28">RestHandler::_mcch</a></div><div class="ttdeci">ChannelInfo _mcch</div><div class="ttdoc">RX info for MCCH.</div><div class="ttdef"><b>Definition:</b> <a href="RestHandler_8h_source.html#l00105">RestHandler.h:105</a></div></div>
+<div class="ttc" id="aclassRestHandler_html_a671b4735033d2b842758768ade60c703"><div class="ttname"><a href="classRestHandler.html#a671b4735033d2b842758768ade60c703">RestHandler::RestHandler</a></div><div class="ttdeci">RestHandler(const libconfig::Config &amp;cfg, const std::string &amp;url, state_t &amp;state, LimeSdrReader &amp;lime, Phy &amp;phy, set_params_t set_params)</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition:</b> <a href="RestHandler_8cpp_source.html#l00035">RestHandler.cpp:35</a></div></div>
+<div class="ttc" id="aclassLimeSdrReader_html"><div class="ttname"><a href="classLimeSdrReader.html">LimeSdrReader</a></div><div class="ttdoc">Interface to LimeSDR via LimeSuite.</div><div class="ttdef"><b>Definition:</b> <a href="LimeSdrReader_8h_source.html#l00036">LimeSdrReader.h:36</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

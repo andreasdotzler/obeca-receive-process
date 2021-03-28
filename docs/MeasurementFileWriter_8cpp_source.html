@@ -105,7 +105,7 @@ $(function() {
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">const</span> uint32_t kGpsWaitMicrosleep = 100;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">const</span> uint32_t kMaxTimestringSize = 80;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;MeasurementFileWriter::MeasurementFileWriter(<span class="keyword">const</span> libconfig::Config&amp; cfg)</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classMeasurementFileWriter.html#abf90c8b0a81c300414de2f6bea59f5ea">   37</a></span>&#160;<a class="code" href="classMeasurementFileWriter.html#abf90c8b0a81c300414de2f6bea59f5ea">MeasurementFileWriter::MeasurementFileWriter</a>(<span class="keyword">const</span> libconfig::Config&amp; cfg)</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      : _cfg(cfg) {</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordtype">bool</span> gps_enabled = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  _cfg.lookupValue(<span class="stringliteral">&quot;measurement_file.gpsd.enabled&quot;</span>, gps_enabled);</div>
@@ -129,7 +129,7 @@ $(function() {
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  }</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;MeasurementFileWriter::~MeasurementFileWriter() {</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classMeasurementFileWriter.html#a81db00fa287af895c9a06e1217634736">   61</a></span>&#160;<a class="code" href="classMeasurementFileWriter.html#a81db00fa287af895c9a06e1217634736">MeasurementFileWriter::~MeasurementFileWriter</a>() {</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  _running = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  _gps_reader_thread.join();</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
@@ -168,7 +168,7 @@ $(function() {
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  }</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordtype">void</span> MeasurementFileWriter::WriteLogValues(</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classMeasurementFileWriter.html#a9d15fffb38b9dd8d0a1d4b2d786ca021">  100</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classMeasurementFileWriter.html#a9d15fffb38b9dd8d0a1d4b2d786ca021">MeasurementFileWriter::WriteLogValues</a>(</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; values) {</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  time_t now = time(<span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keyword">struct </span>tm ts = *localtime(&amp;now);</div>
@@ -199,6 +199,9 @@ $(function() {
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  file.close();</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassMeasurementFileWriter_html_abf90c8b0a81c300414de2f6bea59f5ea"><div class="ttname"><a href="classMeasurementFileWriter.html#abf90c8b0a81c300414de2f6bea59f5ea">MeasurementFileWriter::MeasurementFileWriter</a></div><div class="ttdeci">MeasurementFileWriter(const libconfig::Config &amp;cfg)</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition:</b> <a href="MeasurementFileWriter_8cpp_source.html#l00037">MeasurementFileWriter.cpp:37</a></div></div>
+<div class="ttc" id="aclassMeasurementFileWriter_html_a81db00fa287af895c9a06e1217634736"><div class="ttname"><a href="classMeasurementFileWriter.html#a81db00fa287af895c9a06e1217634736">MeasurementFileWriter::~MeasurementFileWriter</a></div><div class="ttdeci">virtual ~MeasurementFileWriter()</div><div class="ttdoc">Default destructor.</div><div class="ttdef"><b>Definition:</b> <a href="MeasurementFileWriter_8cpp_source.html#l00061">MeasurementFileWriter.cpp:61</a></div></div>
+<div class="ttc" id="aclassMeasurementFileWriter_html_a9d15fffb38b9dd8d0a1d4b2d786ca021"><div class="ttname"><a href="classMeasurementFileWriter.html#a9d15fffb38b9dd8d0a1d4b2d786ca021">MeasurementFileWriter::WriteLogValues</a></div><div class="ttdeci">void WriteLogValues(const std::vector&lt; std::string &gt; &amp;values)</div><div class="ttdoc">Write a line containing the passed values.</div><div class="ttdef"><b>Definition:</b> <a href="MeasurementFileWriter_8cpp_source.html#l00100">MeasurementFileWriter.cpp:100</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

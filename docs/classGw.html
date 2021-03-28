@@ -68,12 +68,17 @@ $(function() {
 <div class="title">Gw Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Network gateway component.  
+ <a href="classGw.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Gw_8h_source.html">Gw.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Gw:</div>
 <div class="dyncontent">
 <div class="center"><img src="classGw__inherit__graph.png" border="0" usemap="#Gw_inherit__map" alt="Inheritance graph"/></div>
 <map name="Gw_inherit__map" id="Gw_inherit__map">
-<area shape="rect" title=" " alt="" coords="59,95,101,121"/>
+<area shape="rect" title="Network gateway component." alt="" coords="59,95,101,121"/>
 <area shape="rect" title=" " alt="" coords="5,5,155,47"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -82,21 +87,26 @@ Collaboration diagram for Gw:</div>
 <div class="dyncontent">
 <div class="center"><img src="classGw__coll__graph.png" border="0" usemap="#Gw_coll__map" alt="Collaboration graph"/></div>
 <map name="Gw_coll__map" id="Gw_coll__map">
-<area shape="rect" title=" " alt="" coords="59,95,101,121"/>
+<area shape="rect" title="Network gateway component." alt="" coords="59,95,101,121"/>
 <area shape="rect" title=" " alt="" coords="5,5,155,47"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af079cd7ee4d32f8415b66d88c2b79668"><td class="memItemLeft" align="right" valign="top"><a id="af079cd7ee4d32f8415b66d88c2b79668"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Gw</b> (const libconfig::Config &amp;cfg, <a class="el" href="classPhy.html">Phy</a> &amp;phy)</td></tr>
+<tr class="memitem:af079cd7ee4d32f8415b66d88c2b79668"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGw.html#af079cd7ee4d32f8415b66d88c2b79668">Gw</a> (const libconfig::Config &amp;cfg, <a class="el" href="classPhy.html">Phy</a> &amp;phy)</td></tr>
+<tr class="memdesc:af079cd7ee4d32f8415b66d88c2b79668"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="classGw.html#af079cd7ee4d32f8415b66d88c2b79668">More...</a><br /></td></tr>
 <tr class="separator:af079cd7ee4d32f8415b66d88c2b79668"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49643ae881ac757e6bd605fa8b7e4523"><td class="memItemLeft" align="right" valign="top"><a id="a49643ae881ac757e6bd605fa8b7e4523"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGw.html#a49643ae881ac757e6bd605fa8b7e4523">~Gw</a> ()</td></tr>
+<tr class="memdesc:a49643ae881ac757e6bd605fa8b7e4523"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br /></td></tr>
+<tr class="separator:a49643ae881ac757e6bd605fa8b7e4523"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af74560ea7ac8521e367905397c5d1602"><td class="memItemLeft" align="right" valign="top"><a id="af74560ea7ac8521e367905397c5d1602"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGw.html#af74560ea7ac8521e367905397c5d1602">init</a> ()</td></tr>
+<tr class="memdesc:af74560ea7ac8521e367905397c5d1602"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the TUN interface according to params from Cfg. <br /></td></tr>
 <tr class="separator:af74560ea7ac8521e367905397c5d1602"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d1cfc83eaf18034f05e78de8cf72386"><td class="memItemLeft" align="right" valign="top"><a id="a3d1cfc83eaf18034f05e78de8cf72386"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>write_pdu_mch</b> (uint32_t lcid, srslte::unique_byte_buffer_t pdu) override</td></tr>
+<tr class="memitem:a3d1cfc83eaf18034f05e78de8cf72386"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGw.html#a3d1cfc83eaf18034f05e78de8cf72386">write_pdu_mch</a> (uint32_t lcid, srslte::unique_byte_buffer_t pdu) override</td></tr>
+<tr class="memdesc:a3d1cfc83eaf18034f05e78de8cf72386"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle a MCH PDU.  <a href="classGw.html#a3d1cfc83eaf18034f05e78de8cf72386">More...</a><br /></td></tr>
 <tr class="separator:a3d1cfc83eaf18034f05e78de8cf72386"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3dee46d850ef38332d945822eba6171"><td class="memItemLeft" align="right" valign="top"><a id="ab3dee46d850ef38332d945822eba6171"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>add_mch_port</b> (uint32_t lcid, uint32_t port) override</td></tr>
@@ -115,9 +125,160 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>set_test_loop_mode</b
 <tr class="separator:a03662c1d574a0ae9df65761d4b7b00ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="Gw_8h_source.html#l00029">29</a> of file <a class="el" href="Gw_8h_source.html">Gw.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<div class="textblock"><p>Network gateway component. </p>
+<p>Creates a TUN network interface, and writes the received MCH PDU contents out on it. </p>
+
+<p class="definition">Definition at line <a class="el" href="Gw_8h_source.html#l00034">34</a> of file <a class="el" href="Gw_8h_source.html">Gw.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="af079cd7ee4d32f8415b66d88c2b79668"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af079cd7ee4d32f8415b66d88c2b79668">&#9670;&nbsp;</a></span>Gw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Gw::Gw </td>
+          <td>(</td>
+          <td class="paramtype">const libconfig::Config &amp;&#160;</td>
+          <td class="paramname"><em>cfg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPhy.html">Phy</a> &amp;&#160;</td>
+          <td class="paramname"><em>phy</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cfg</td><td>Config singleton reference </td></tr>
+    <tr><td class="paramname">phy</td><td>PHY reference </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Gw_8h_source.html#l00042">42</a> of file <a class="el" href="Gw_8h_source.html">Gw.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      : _cfg(cfg)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        , _phy(phy)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      {}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3d1cfc83eaf18034f05e78de8cf72386"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d1cfc83eaf18034f05e78de8cf72386">&#9670;&nbsp;</a></span>write_pdu_mch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Gw::write_pdu_mch </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>lcid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">srslte::unique_byte_buffer_t&#160;</td>
+          <td class="paramname"><em>pdu</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handle a MCH PDU. </p>
+<p>Verifies the contents start with an IP header, checks the IP header checksum and corrects it if necessary, and writes the packet out to the TUN interface. </p>
+
+<p class="definition">Definition at line <a class="el" href="Gw_8cpp_source.html#l00036">36</a> of file <a class="el" href="Gw_8cpp_source.html">Gw.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                                                                    {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">char</span>* err_str = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordflow">if</span> (pdu-&gt;N_bytes &gt; 2) {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    spdlog::debug(<span class="stringliteral">&quot;RX MCH PDU ({} B). Stack latency: {} us&quot;</span>, pdu-&gt;N_bytes, pdu-&gt;get_latency_us());</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span> (_tun_fd &lt; 0) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      spdlog::warn(<span class="stringliteral">&quot;TUN/TAP not up - dropping gw RX message\n&quot;</span>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="keyword">auto</span> ip_hdr = <span class="keyword">reinterpret_cast&lt;</span>iphdr*<span class="keyword">&gt;</span>(pdu-&gt;msg);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <span class="keywordflow">if</span> (ip_hdr-&gt;protocol == 17 <span class="comment">/*UDP*/</span>) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">auto</span> udp_hdr = <span class="keyword">reinterpret_cast&lt;</span>udphdr*<span class="keyword">&gt;</span>(pdu-&gt;msg + 4U * ip_hdr-&gt;ihl);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">char</span> dest[INET6_ADDRSTRLEN] = <span class="stringliteral">&quot;&quot;</span>;   <span class="comment">// NOLINT</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        inet_ntop(AF_INET, (<span class="keyword">const</span> <span class="keywordtype">void</span>*)&amp;ip_hdr-&gt;daddr, dest, <span class="keyword">sizeof</span>(dest));</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        _phy.set_dest_for_lcid(lcid, std::string(dest) + <span class="stringliteral">&quot;:&quot;</span> + std::to_string(ntohs(udp_hdr-&gt;dest)));</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">auto</span> ptr = <span class="keyword">reinterpret_cast&lt;</span>uint16_t*<span class="keyword">&gt;</span>(ip_hdr);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        int32_t sum = 0;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        sum += *ptr++;   <span class="comment">// ihl / version / dscp</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        sum += *ptr++;   <span class="comment">// total len</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        sum += *ptr++;   <span class="comment">// id</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        sum += *ptr++;   <span class="comment">// frag offset</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        sum += *ptr++;   <span class="comment">// ttl + protocol</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        ptr++;           <span class="comment">// skip checksum</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        sum += *ptr++;   <span class="comment">// src</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        sum += *ptr++;   <span class="comment">// src</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        sum += *ptr++;   <span class="comment">// dst</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        sum += *ptr;     <span class="comment">// dst</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        sum = (sum &gt;&gt; 16) + (sum &amp; 0xffff);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        sum += (sum &gt;&gt; 16);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        uint16_t chk = ~sum;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">if</span> (ip_hdr-&gt;check != chk) {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;          spdlog::info(<span class="stringliteral">&quot;Wrong IP header checksum {}, should be {}. Correcting.&quot;</span>, ip_hdr-&gt;check, chk);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;          ip_hdr-&gt;check = chk;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      _wr_mutex.lock();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <span class="keywordtype">int</span> n = write(_tun_fd, pdu-&gt;msg, pdu-&gt;N_bytes);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      _wr_mutex.unlock();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      <span class="keywordflow">if</span> (n &gt; 0 &amp;&amp; (pdu-&gt;N_bytes != <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(n))) {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        spdlog::warn(<span class="stringliteral">&quot;DL TUN/TAP short write&quot;</span>);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <span class="keywordflow">if</span> (n == 0) {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        spdlog::warn(<span class="stringliteral">&quot;DL TUN/TAP 0 write&quot;</span>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      <span class="keywordflow">if</span> (n &lt; 0) {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        err_str = strerror(errno);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        spdlog::warn(<span class="stringliteral">&quot;DL TUN/TAP write error  {}&quot;</span>, err_str);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="Gw_8h_source.html">Gw.h</a></li>
 <li>src/<a class="el" href="Gw_8cpp_source.html">Gw.cpp</a></li>
 </ul>

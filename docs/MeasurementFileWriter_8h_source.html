@@ -100,28 +100,33 @@ $(function() {
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;libconfig.h++&gt;</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classMeasurementFileWriter.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMeasurementFileWriter.html">MeasurementFileWriter</a> {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classMeasurementFileWriter.html">MeasurementFileWriter</a>(<span class="keyword">const</span> libconfig::Config&amp; cfg);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classMeasurementFileWriter.html">MeasurementFileWriter</a>();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> WriteLogValues(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; values);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> ReadGps();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">const</span> libconfig::Config&amp; _cfg;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    std::unique_ptr&lt;gpsmm&gt; _gps;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">struct </span>gps_data_t* _gps_data {};</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::thread _gps_reader_thread;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">bool</span> _running = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    std::string _last_gps_lat = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    std::string _last_gps_lng = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    std::string _last_gps_time = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classMeasurementFileWriter.html">   35</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMeasurementFileWriter.html">MeasurementFileWriter</a> {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classMeasurementFileWriter.html#abf90c8b0a81c300414de2f6bea59f5ea">MeasurementFileWriter</a>(<span class="keyword">const</span> libconfig::Config&amp; cfg);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classMeasurementFileWriter.html#a81db00fa287af895c9a06e1217634736">~MeasurementFileWriter</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMeasurementFileWriter.html#a9d15fffb38b9dd8d0a1d4b2d786ca021">WriteLogValues</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; values);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> ReadGps();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">const</span> libconfig::Config&amp; _cfg;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    std::unique_ptr&lt;gpsmm&gt; _gps;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">struct </span>gps_data_t* _gps_data {};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    std::thread _gps_reader_thread;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">bool</span> _running = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    std::string _last_gps_lat = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    std::string _last_gps_lng = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    std::string _last_gps_time = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassMeasurementFileWriter_html"><div class="ttname"><a href="classMeasurementFileWriter.html">MeasurementFileWriter</a></div><div class="ttdef"><b>Definition:</b> <a href="MeasurementFileWriter_8h_source.html#l00032">MeasurementFileWriter.h:32</a></div></div>
+<div class="ttc" id="aclassMeasurementFileWriter_html"><div class="ttname"><a href="classMeasurementFileWriter.html">MeasurementFileWriter</a></div><div class="ttdoc">Writes measurement data / current reception parameters to a file.</div><div class="ttdef"><b>Definition:</b> <a href="MeasurementFileWriter_8h_source.html#l00035">MeasurementFileWriter.h:35</a></div></div>
+<div class="ttc" id="aclassMeasurementFileWriter_html_abf90c8b0a81c300414de2f6bea59f5ea"><div class="ttname"><a href="classMeasurementFileWriter.html#abf90c8b0a81c300414de2f6bea59f5ea">MeasurementFileWriter::MeasurementFileWriter</a></div><div class="ttdeci">MeasurementFileWriter(const libconfig::Config &amp;cfg)</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition:</b> <a href="MeasurementFileWriter_8cpp_source.html#l00037">MeasurementFileWriter.cpp:37</a></div></div>
+<div class="ttc" id="aclassMeasurementFileWriter_html_a81db00fa287af895c9a06e1217634736"><div class="ttname"><a href="classMeasurementFileWriter.html#a81db00fa287af895c9a06e1217634736">MeasurementFileWriter::~MeasurementFileWriter</a></div><div class="ttdeci">virtual ~MeasurementFileWriter()</div><div class="ttdoc">Default destructor.</div><div class="ttdef"><b>Definition:</b> <a href="MeasurementFileWriter_8cpp_source.html#l00061">MeasurementFileWriter.cpp:61</a></div></div>
+<div class="ttc" id="aclassMeasurementFileWriter_html_a9d15fffb38b9dd8d0a1d4b2d786ca021"><div class="ttname"><a href="classMeasurementFileWriter.html#a9d15fffb38b9dd8d0a1d4b2d786ca021">MeasurementFileWriter::WriteLogValues</a></div><div class="ttdeci">void WriteLogValues(const std::vector&lt; std::string &gt; &amp;values)</div><div class="ttdoc">Write a line containing the passed values.</div><div class="ttdef"><b>Definition:</b> <a href="MeasurementFileWriter_8cpp_source.html#l00100">MeasurementFileWriter.cpp:100</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

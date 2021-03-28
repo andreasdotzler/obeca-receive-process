@@ -97,33 +97,40 @@ $(function() {
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;Phy.h&quot;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classGw.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="classGw.html">Gw</a> : <span class="keyword">public</span> srsue::gw_interface_stack {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classGw.html">Gw</a>(<span class="keyword">const</span> libconfig::Config&amp; cfg, <a class="code" href="classPhy.html">Phy</a>&amp; phy)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      : _cfg(cfg)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      , _phy(phy)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      {}</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classGw.html">Gw</a>();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> init();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> write_pdu_mch(uint32_t lcid, srslte::unique_byte_buffer_t pdu) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> add_mch_port(uint32_t lcid, uint32_t port)<span class="keyword"> override </span>{};</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> write_pdu(uint32_t lcid, srslte::unique_byte_buffer_t pdu)<span class="keyword"> override </span>{};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">int</span> setup_if_addr(uint32_t lcid, uint8_t pdn_type, uint32_t ip_addr, uint8_t* ipv6_if_id, <span class="keywordtype">char</span>* err_str)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> -1; };</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">int</span> apply_traffic_flow_template(<span class="keyword">const</span> uint8_t&amp; eps_bearer_id, <span class="keyword">const</span> uint8_t&amp; lcid, <span class="keyword">const</span> LIBLTE_MME_TRAFFIC_FLOW_TEMPLATE_STRUCT* tft)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> -1; };</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> set_test_loop_mode(<span class="keyword">const</span> test_loop_mode_state_t mode, <span class="keyword">const</span> uint32_t ip_pdu_delay_ms = 0)<span class="keyword"> override </span>{};</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">const</span> libconfig::Config&amp; _cfg;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    std::mutex _wr_mutex;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    int32_t _tun_fd = -1;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="classPhy.html">Phy</a>&amp; _phy;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classGw.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="classGw.html">Gw</a> : <span class="keyword">public</span> srsue::gw_interface_stack {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classGw.html#af079cd7ee4d32f8415b66d88c2b79668">   42</a></span>&#160;    <a class="code" href="classGw.html#af079cd7ee4d32f8415b66d88c2b79668">Gw</a>(<span class="keyword">const</span> libconfig::Config&amp; cfg, <a class="code" href="classPhy.html">Phy</a>&amp; phy)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      : _cfg(cfg)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        , _phy(phy)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      {}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classGw.html#a49643ae881ac757e6bd605fa8b7e4523">~Gw</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGw.html#af74560ea7ac8521e367905397c5d1602">init</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGw.html#a3d1cfc83eaf18034f05e78de8cf72386">write_pdu_mch</a>(uint32_t lcid, srslte::unique_byte_buffer_t pdu) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">// Unused interface methods</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> add_mch_port(uint32_t lcid, uint32_t port)<span class="keyword"> override </span>{};</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> write_pdu(uint32_t lcid, srslte::unique_byte_buffer_t pdu)<span class="keyword"> override </span>{};</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">int</span> setup_if_addr(uint32_t lcid, uint8_t pdn_type, uint32_t ip_addr, uint8_t* ipv6_if_id, <span class="keywordtype">char</span>* err_str)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> -1; };</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">int</span> apply_traffic_flow_template(<span class="keyword">const</span> uint8_t&amp; eps_bearer_id, <span class="keyword">const</span> uint8_t&amp; lcid, <span class="keyword">const</span> LIBLTE_MME_TRAFFIC_FLOW_TEMPLATE_STRUCT* tft)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> -1; };</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> set_test_loop_mode(<span class="keyword">const</span> test_loop_mode_state_t mode, <span class="keyword">const</span> uint32_t ip_pdu_delay_ms = 0)<span class="keyword"> override </span>{};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">const</span> libconfig::Config&amp; _cfg;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    std::mutex _wr_mutex;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    int32_t _tun_fd = -1;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="classPhy.html">Phy</a>&amp; _phy;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassGw_html"><div class="ttname"><a href="classGw.html">Gw</a></div><div class="ttdef"><b>Definition:</b> <a href="Gw_8h_source.html#l00029">Gw.h:29</a></div></div>
-<div class="ttc" id="aclassPhy_html"><div class="ttname"><a href="classPhy.html">Phy</a></div><div class="ttdef"><b>Definition:</b> <a href="Phy_8h_source.html#l00038">Phy.h:38</a></div></div>
+<div class="ttc" id="aclassGw_html"><div class="ttname"><a href="classGw.html">Gw</a></div><div class="ttdoc">Network gateway component.</div><div class="ttdef"><b>Definition:</b> <a href="Gw_8h_source.html#l00034">Gw.h:34</a></div></div>
+<div class="ttc" id="aclassPhy_html"><div class="ttname"><a href="classPhy.html">Phy</a></div><div class="ttdoc">The PHY component.</div><div class="ttdef"><b>Definition:</b> <a href="Phy_8h_source.html#l00043">Phy.h:43</a></div></div>
+<div class="ttc" id="aclassGw_html_a49643ae881ac757e6bd605fa8b7e4523"><div class="ttname"><a href="classGw.html#a49643ae881ac757e6bd605fa8b7e4523">Gw::~Gw</a></div><div class="ttdeci">virtual ~Gw()</div><div class="ttdoc">Default destructor.</div><div class="ttdef"><b>Definition:</b> <a href="Gw_8cpp_source.html#l00093">Gw.cpp:93</a></div></div>
+<div class="ttc" id="aclassGw_html_a3d1cfc83eaf18034f05e78de8cf72386"><div class="ttname"><a href="classGw.html#a3d1cfc83eaf18034f05e78de8cf72386">Gw::write_pdu_mch</a></div><div class="ttdeci">void write_pdu_mch(uint32_t lcid, srslte::unique_byte_buffer_t pdu) override</div><div class="ttdoc">Handle a MCH PDU.</div><div class="ttdef"><b>Definition:</b> <a href="Gw_8cpp_source.html#l00036">Gw.cpp:36</a></div></div>
+<div class="ttc" id="aclassGw_html_af079cd7ee4d32f8415b66d88c2b79668"><div class="ttname"><a href="classGw.html#af079cd7ee4d32f8415b66d88c2b79668">Gw::Gw</a></div><div class="ttdeci">Gw(const libconfig::Config &amp;cfg, Phy &amp;phy)</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition:</b> <a href="Gw_8h_source.html#l00042">Gw.h:42</a></div></div>
+<div class="ttc" id="aclassGw_html_af74560ea7ac8521e367905397c5d1602"><div class="ttname"><a href="classGw.html#af74560ea7ac8521e367905397c5d1602">Gw::init</a></div><div class="ttdeci">void init()</div><div class="ttdoc">Creates the TUN interface according to params from Cfg.</div><div class="ttdef"><b>Definition:</b> <a href="Gw_8cpp_source.html#l00099">Gw.cpp:99</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

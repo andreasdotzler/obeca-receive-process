@@ -68,59 +68,249 @@ $(function() {
 <div class="title">LimeSdrReader Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Interface to LimeSDR via LimeSuite.  
+ <a href="classLimeSdrReader.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="LimeSdrReader_8h_source.html">LimeSdrReader.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a130b3d1364fe5e52adcf0b00df89168e"><td class="memItemLeft" align="right" valign="top"><a id="a130b3d1364fe5e52adcf0b00df89168e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>LimeSdrReader</b> (const libconfig::Config &amp;cfg)</td></tr>
+<tr class="memitem:a130b3d1364fe5e52adcf0b00df89168e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLimeSdrReader.html#a130b3d1364fe5e52adcf0b00df89168e">LimeSdrReader</a> (const libconfig::Config &amp;cfg)</td></tr>
+<tr class="memdesc:a130b3d1364fe5e52adcf0b00df89168e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="classLimeSdrReader.html#a130b3d1364fe5e52adcf0b00df89168e">More...</a><br /></td></tr>
 <tr class="separator:a130b3d1364fe5e52adcf0b00df89168e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1153589fe505a6494a276441baa78b21"><td class="memItemLeft" align="right" valign="top"><a id="a1153589fe505a6494a276441baa78b21"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLimeSdrReader.html#a1153589fe505a6494a276441baa78b21">~LimeSdrReader</a> ()</td></tr>
+<tr class="memdesc:a1153589fe505a6494a276441baa78b21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br /></td></tr>
+<tr class="separator:a1153589fe505a6494a276441baa78b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb5d924de97d2336ed1f011ee8ab692f"><td class="memItemLeft" align="right" valign="top"><a id="adb5d924de97d2336ed1f011ee8ab692f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (uint8_t device_index, const char *sample_file, const char *write_sample_file)</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLimeSdrReader.html#adb5d924de97d2336ed1f011ee8ab692f">init</a> (uint8_t device_index, const char *sample_file, const char *write_sample_file)</td></tr>
+<tr class="memdesc:adb5d924de97d2336ed1f011ee8ab692f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the SDR interface and creates a ring buffer according to the params from Cfg. <br /></td></tr>
 <tr class="separator:adb5d924de97d2336ed1f011ee8ab692f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2f261b48dc12b6c978c1b10a379b162"><td class="memItemLeft" align="right" valign="top"><a id="ac2f261b48dc12b6c978c1b10a379b162"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>setSampleRate</b> (unsigned sample_rate)</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLimeSdrReader.html#ac2f261b48dc12b6c978c1b10a379b162">setSampleRate</a> (unsigned sample_rate)</td></tr>
+<tr class="memdesc:ac2f261b48dc12b6c978c1b10a379b162"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjust the sample rate. <br /></td></tr>
 <tr class="separator:ac2f261b48dc12b6c978c1b10a379b162"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcf1fa2bab5de57689d4549d5aa74bdc"><td class="memItemLeft" align="right" valign="top"><a id="afcf1fa2bab5de57689d4549d5aa74bdc"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>tune</b> (uint32_t frequency, uint32_t sample_rate, uint32_t bandwidth, double gain, const std::string &amp;antenna)</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLimeSdrReader.html#afcf1fa2bab5de57689d4549d5aa74bdc">tune</a> (uint32_t frequency, uint32_t sample_rate, uint32_t bandwidth, double gain, const std::string &amp;antenna)</td></tr>
+<tr class="memdesc:afcf1fa2bab5de57689d4549d5aa74bdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tune the SDR to the desired frequency, and set gain, filter and antenna parameters. <br /></td></tr>
 <tr class="separator:afcf1fa2bab5de57689d4549d5aa74bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b457b10933db574972732baf6a73dd1"><td class="memItemLeft" align="right" valign="top"><a id="a6b457b10933db574972732baf6a73dd1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLimeSdrReader.html#a6b457b10933db574972732baf6a73dd1">start</a> ()</td></tr>
+<tr class="memdesc:a6b457b10933db574972732baf6a73dd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start reading samples from the SDR. <br /></td></tr>
 <tr class="separator:a6b457b10933db574972732baf6a73dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43ae90902ce07614e70801852c0cd350"><td class="memItemLeft" align="right" valign="top"><a id="a43ae90902ce07614e70801852c0cd350"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>stop</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLimeSdrReader.html#a43ae90902ce07614e70801852c0cd350">stop</a> ()</td></tr>
+<tr class="memdesc:a43ae90902ce07614e70801852c0cd350"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop reading samples from the SDR. <br /></td></tr>
 <tr class="separator:a43ae90902ce07614e70801852c0cd350"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afef69f3d19190b86b154898735cf8ab0"><td class="memItemLeft" align="right" valign="top"><a id="afef69f3d19190b86b154898735cf8ab0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clear_buffer</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLimeSdrReader.html#afef69f3d19190b86b154898735cf8ab0">clear_buffer</a> ()</td></tr>
+<tr class="memdesc:afef69f3d19190b86b154898735cf8ab0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear all samples from the rx buffers. <br /></td></tr>
 <tr class="separator:afef69f3d19190b86b154898735cf8ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33f0fc310e4b402aeea96c59bb88076c"><td class="memItemLeft" align="right" valign="top"><a id="a33f0fc310e4b402aeea96c59bb88076c"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getSamples</b> (cf_t *data, uint32_t nsamples, srslte_timestamp_t *rx_time)</td></tr>
+<tr class="memitem:a33f0fc310e4b402aeea96c59bb88076c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLimeSdrReader.html#a33f0fc310e4b402aeea96c59bb88076c">getSamples</a> (cf_t *data, uint32_t nsamples, srslte_timestamp_t *rx_time)</td></tr>
+<tr class="memdesc:a33f0fc310e4b402aeea96c59bb88076c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Store nsamples count samples into the buffer at data.  <a href="classLimeSdrReader.html#a33f0fc310e4b402aeea96c59bb88076c">More...</a><br /></td></tr>
 <tr class="separator:a33f0fc310e4b402aeea96c59bb88076c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75ee49878fc662cbc99c4d52c62316ea"><td class="memItemLeft" align="right" valign="top"><a id="a75ee49878fc662cbc99c4d52c62316ea"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>get_sample_rate</b> ()</td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLimeSdrReader.html#a75ee49878fc662cbc99c4d52c62316ea">get_sample_rate</a> ()</td></tr>
+<tr class="memdesc:a75ee49878fc662cbc99c4d52c62316ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current sample rate. <br /></td></tr>
 <tr class="separator:a75ee49878fc662cbc99c4d52c62316ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af85a16e141a610a10cfea536a3bd6fa1"><td class="memItemLeft" align="right" valign="top"><a id="af85a16e141a610a10cfea536a3bd6fa1"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>get_frequency</b> ()</td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLimeSdrReader.html#af85a16e141a610a10cfea536a3bd6fa1">get_frequency</a> ()</td></tr>
+<tr class="memdesc:af85a16e141a610a10cfea536a3bd6fa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current center frequency. <br /></td></tr>
 <tr class="separator:af85a16e141a610a10cfea536a3bd6fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50186ee0952156614c6551ddf74916c4"><td class="memItemLeft" align="right" valign="top"><a id="a50186ee0952156614c6551ddf74916c4"></a>
-unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>get_filter_bw</b> ()</td></tr>
+unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLimeSdrReader.html#a50186ee0952156614c6551ddf74916c4">get_filter_bw</a> ()</td></tr>
+<tr class="memdesc:a50186ee0952156614c6551ddf74916c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current filter bandwidth. <br /></td></tr>
 <tr class="separator:a50186ee0952156614c6551ddf74916c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0956cae15166c550d4bb2a0d0f2bde1"><td class="memItemLeft" align="right" valign="top"><a id="aa0956cae15166c550d4bb2a0d0f2bde1"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>get_gain</b> ()</td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLimeSdrReader.html#aa0956cae15166c550d4bb2a0d0f2bde1">get_gain</a> ()</td></tr>
+<tr class="memdesc:aa0956cae15166c550d4bb2a0d0f2bde1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current gain. <br /></td></tr>
 <tr class="separator:aa0956cae15166c550d4bb2a0d0f2bde1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa8b945ae6c815323670c2a6570795b9"><td class="memItemLeft" align="right" valign="top"><a id="afa8b945ae6c815323670c2a6570795b9"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>get_buffer_level</b> ()</td></tr>
+<tr class="memitem:afa8b945ae6c815323670c2a6570795b9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLimeSdrReader.html#afa8b945ae6c815323670c2a6570795b9">get_buffer_level</a> ()</td></tr>
+<tr class="memdesc:afa8b945ae6c815323670c2a6570795b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current ringbuffer level (0 = empty .  <a href="classLimeSdrReader.html#afa8b945ae6c815323670c2a6570795b9">More...</a><br /></td></tr>
 <tr class="separator:afa8b945ae6c815323670c2a6570795b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9be5f30239b5cd8f1727e5bf0be66ce"><td class="memItemLeft" align="right" valign="top"><a id="ac9be5f30239b5cd8f1727e5bf0be66ce"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>get_antenna</b> ()</td></tr>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLimeSdrReader.html#ac9be5f30239b5cd8f1727e5bf0be66ce">get_antenna</a> ()</td></tr>
+<tr class="memdesc:ac9be5f30239b5cd8f1727e5bf0be66ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current antenna port. <br /></td></tr>
 <tr class="separator:ac9be5f30239b5cd8f1727e5bf0be66ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabcce895022b3da75f08a3b43c75ad96"><td class="memItemLeft" align="right" valign="top"><a id="aabcce895022b3da75f08a3b43c75ad96"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>rssi</b> ()</td></tr>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLimeSdrReader.html#aabcce895022b3da75f08a3b43c75ad96">rssi</a> ()</td></tr>
+<tr class="memdesc:aabcce895022b3da75f08a3b43c75ad96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get RSSI estimate (disabled at the moment) <br /></td></tr>
 <tr class="separator:aabcce895022b3da75f08a3b43c75ad96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="LimeSdrReader_8h_source.html#l00030">30</a> of file <a class="el" href="LimeSdrReader_8h_source.html">LimeSdrReader.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<div class="textblock"><p>Interface to LimeSDR via LimeSuite. </p>
+<p>Sets up the SDR, reads samples from it, and handles a ringbuffer for the received samples. </p>
+
+<p class="definition">Definition at line <a class="el" href="LimeSdrReader_8h_source.html#l00036">36</a> of file <a class="el" href="LimeSdrReader_8h_source.html">LimeSdrReader.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a130b3d1364fe5e52adcf0b00df89168e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a130b3d1364fe5e52adcf0b00df89168e">&#9670;&nbsp;</a></span>LimeSdrReader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">LimeSdrReader::LimeSdrReader </td>
+          <td>(</td>
+          <td class="paramtype">const libconfig::Config &amp;&#160;</td>
+          <td class="paramname"><em>cfg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cfg</td><td>Config singleton reference </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="LimeSdrReader_8h_source.html#l00043">43</a> of file <a class="el" href="LimeSdrReader_8h_source.html">LimeSdrReader.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      : _buffer(bev::linear_ringbuffer::delayed_init {})</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      , _overflows(0)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      , _underflows(0)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      , _cfg(cfg)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      , _readerThread{} {}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="afa8b945ae6c815323670c2a6570795b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa8b945ae6c815323670c2a6570795b9">&#9670;&nbsp;</a></span>get_buffer_level()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LimeSdrReader::get_buffer_level </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get current ringbuffer level (0 = empty . </p>
+<p>. 1 = full) </p>
+
+<p class="definition">Definition at line <a class="el" href="LimeSdrReader_8h_source.html#l00117">117</a> of file <a class="el" href="LimeSdrReader_8h_source.html">LimeSdrReader.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;{ <span class="keywordflow">if</span> (!_buffer_ready) { <span class="keywordflow">return</span> 0; } <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(_buffer.size()) / <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(_buffer.capacity()); }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a33f0fc310e4b402aeea96c59bb88076c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33f0fc310e4b402aeea96c59bb88076c">&#9670;&nbsp;</a></span>getSamples()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto LimeSdrReader::getSamples </td>
+          <td>(</td>
+          <td class="paramtype">cf_t *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>nsamples</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">srslte_timestamp_t *&#160;</td>
+          <td class="paramname"><em>rx_time</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Store nsamples count samples into the buffer at data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Buffer pointer </td></tr>
+    <tr><td class="paramname">nsamples</td><td>sample count </td></tr>
+    <tr><td class="paramname">rx_time</td><td>unused </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="LimeSdrReader_8cpp_source.html#l00306">306</a> of file <a class="el" href="LimeSdrReader_8cpp_source.html">LimeSdrReader.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                                         {</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  std::chrono::steady_clock::time_point entered = {};</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  entered = std::chrono::steady_clock::now();</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  int64_t required_time_us = (1000000.0/_sampleRate) * nsamples;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  <span class="keywordtype">size_t</span> cnt = nsamples * <span class="keyword">sizeof</span>(cf_t);</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  <span class="keywordflow">if</span> (_high_watermark_reached &amp;&amp;  _buffer.size() &lt; (_sampleRate / 1000.0) * 10 * <span class="keyword">sizeof</span>(cf_t)) {</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    _high_watermark_reached = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  }</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  <span class="keywordflow">if</span> (!_high_watermark_reached) {</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="keywordflow">while</span> (_buffer.size() &lt; (_sampleRate / 1000.0) * (_buffer_ms / 2.0) * <span class="keyword">sizeof</span>(cf_t)) {</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;      std::this_thread::sleep_for(std::chrono::microseconds(500));</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    }</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    spdlog::debug(<span class="stringliteral">&quot;Filled ringbuffer to half capacity&quot;</span>);</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    _high_watermark_reached = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  }</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  memcpy(data, _buffer.read_head(), cnt);</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;  _buffer.consume(cnt);</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;  <span class="keywordflow">if</span> (_buffer.size() &lt; (_sampleRate / 1000.0) * (_buffer_ms / 2.0) * <span class="keyword">sizeof</span>(cf_t)) {</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    required_time_us += 500;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    required_time_us -= 500;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;  }</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160; </div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  spdlog::debug(<span class="stringliteral">&quot;read {} samples, adjusted required {} us, delta {} us, sleep adj {},  sleeping for {} us&quot;</span>,</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;      nsamples,</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;      std::chrono::microseconds(required_time_us).count(),</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;      std::chrono::duration_cast&lt;std::chrono::microseconds&gt;(std::chrono::steady_clock::now() - _last_read).count(),</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;      _sleep_adjustment,</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;      (std::chrono::microseconds(_sleep_adjustment + required_time_us) - std::chrono::duration_cast&lt;std::chrono::microseconds&gt;(std::chrono::steady_clock::now() - _last_read)).count());</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;  std::chrono::microseconds sleep = (std::chrono::microseconds(_sleep_adjustment + required_time_us) - std::chrono::duration_cast&lt;std::chrono::microseconds&gt;(std::chrono::steady_clock::now() - _last_read));</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; </div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;  <span class="keywordflow">if</span> (sleep.count() &gt; 0) {</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    std::this_thread::sleep_for(sleep);</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    _sleep_adjustment = 0;</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;  } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (sleep.count() &gt; -100000) {</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    _sleep_adjustment = sleep.count();</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;  }</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;  _last_read = std::chrono::steady_clock::now();</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="LimeSdrReader_8h_source.html">LimeSdrReader.h</a></li>
 <li>src/<a class="el" href="LimeSdrReader_8cpp_source.html">LimeSdrReader.cpp</a></li>
 </ul>

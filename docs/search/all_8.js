@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['resthandler_14',['RestHandler',['../classRestHandler.html',1,'']]],
-  ['rrc_15',['Rrc',['../classRrc.html',1,'']]]
+  ['nr_5fprb_41',['nr_prb',['../classPhy.html#a161c6888d9d177958224244886fcc491',1,'Phy']]]
 ];

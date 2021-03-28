@@ -97,45 +97,47 @@ $(function() {
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;Phy.h&quot;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classRrc.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRrc.html">Rrc</a> : <span class="keyword">public</span> srsue::rrc_interface_rlc, <span class="keyword">public</span> srsue::rrc_interface_pdcp {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classRrc.html">Rrc</a>(<span class="keyword">const</span> libconfig::Config&amp; cfg, <a class="code" href="classPhy.html">Phy</a>&amp; phy, srslte::rlc&amp; rlc)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      : _cfg(cfg)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      , _rlc(rlc)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      , _phy(phy) {}</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classRrc.html">Rrc</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> max_retx_attempted()<span class="keyword"> override </span>{};</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      ACQUIRE_SIB,</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      ACQUIRE_AREA_CONFIG,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      STREAMING</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    } rrc_state_t;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    rrc_state_t state() { <span class="keywordflow">return</span> _state; }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> reset() { _state = ACQUIRE_SIB;  }</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classRrc.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRrc.html">Rrc</a> : <span class="keyword">public</span> srsue::rrc_interface_rlc, <span class="keyword">public</span> srsue::rrc_interface_pdcp {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classRrc.html#a29981ea3b126b381ee03848b33758b3f">   43</a></span>&#160;    <a class="code" href="classRrc.html#a29981ea3b126b381ee03848b33758b3f">Rrc</a>(<span class="keyword">const</span> libconfig::Config&amp; cfg, <a class="code" href="classPhy.html">Phy</a>&amp; phy, srslte::rlc&amp; rlc)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      : _cfg(cfg)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      , _rlc(rlc)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      , _phy(phy) {}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classRrc.html">Rrc</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> write_pdu_mch(uint32_t lcid, srslte::unique_byte_buffer_t pdu) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> write_pdu_bcch_dlsch(srslte::unique_byte_buffer_t pdu) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> write_pdu(uint32_t lcid, srslte::unique_byte_buffer_t pdu)<span class="keyword"> override </span>{};</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> write_pdu_bcch_bch(srslte::unique_byte_buffer_t pdu)<span class="keyword"> override </span>{};</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> write_pdu_pcch(srslte::unique_byte_buffer_t pdu)<span class="keyword"> override </span>{};</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    std::string get_rb_name(uint32_t lcid)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;RB&quot;</span> + std::to_string(lcid); };</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> handle_sib1(<span class="keyword">const</span> asn1::rrc::sib_type1_mbms_r14_s&amp; sib1);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    rrc_state_t _state = ACQUIRE_SIB;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">const</span> libconfig::Config&amp; _cfg;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    srslte::rlc&amp; _rlc;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="classPhy.html">Phy</a>&amp; _phy;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> max_retx_attempted()<span class="keyword"> override </span>{}; <span class="comment">// Unused</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      ACQUIRE_SIB,</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      ACQUIRE_AREA_CONFIG,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      STREAMING</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    } rrc_state_t;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    rrc_state_t state() { <span class="keywordflow">return</span> _state; }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> reset() { _state = ACQUIRE_SIB;  }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRrc.html#a1f229052df1551ef29f9260208f59fbd">write_pdu_mch</a>(uint32_t lcid, srslte::unique_byte_buffer_t pdu) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRrc.html#a75e998ee115eb3d6c6a418f33cd57459">write_pdu_bcch_dlsch</a>(srslte::unique_byte_buffer_t pdu) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> write_pdu(uint32_t lcid, srslte::unique_byte_buffer_t pdu)<span class="keyword"> override </span>{}; <span class="comment">// Unused</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> write_pdu_bcch_bch(srslte::unique_byte_buffer_t pdu)<span class="keyword"> override </span>{}; <span class="comment">// Unused</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> write_pdu_pcch(srslte::unique_byte_buffer_t pdu)<span class="keyword"> override </span>{}; <span class="comment">// Unused</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    std::string get_rb_name(uint32_t lcid)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;RB&quot;</span> + std::to_string(lcid); };</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> handle_sib1(<span class="keyword">const</span> asn1::rrc::sib_type1_mbms_r14_s&amp; sib1);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    rrc_state_t _state = ACQUIRE_SIB;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">const</span> libconfig::Config&amp; _cfg;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    srslte::rlc&amp; _rlc;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="classPhy.html">Phy</a>&amp; _phy;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassRrc_html"><div class="ttname"><a href="classRrc.html">Rrc</a></div><div class="ttdef"><b>Definition:</b> <a href="Rrc_8h_source.html#l00029">Rrc.h:29</a></div></div>
-<div class="ttc" id="aclassPhy_html"><div class="ttname"><a href="classPhy.html">Phy</a></div><div class="ttdef"><b>Definition:</b> <a href="Phy_8h_source.html#l00038">Phy.h:38</a></div></div>
+<div class="ttc" id="aclassRrc_html"><div class="ttname"><a href="classRrc.html">Rrc</a></div><div class="ttdoc">Simple RRC component between PHY and RLC.</div><div class="ttdef"><b>Definition:</b> <a href="Rrc_8h_source.html#l00034">Rrc.h:34</a></div></div>
+<div class="ttc" id="aclassRrc_html_a29981ea3b126b381ee03848b33758b3f"><div class="ttname"><a href="classRrc.html#a29981ea3b126b381ee03848b33758b3f">Rrc::Rrc</a></div><div class="ttdeci">Rrc(const libconfig::Config &amp;cfg, Phy &amp;phy, srslte::rlc &amp;rlc)</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition:</b> <a href="Rrc_8h_source.html#l00043">Rrc.h:43</a></div></div>
+<div class="ttc" id="aclassPhy_html"><div class="ttname"><a href="classPhy.html">Phy</a></div><div class="ttdoc">The PHY component.</div><div class="ttdef"><b>Definition:</b> <a href="Phy_8h_source.html#l00043">Phy.h:43</a></div></div>
+<div class="ttc" id="aclassRrc_html_a75e998ee115eb3d6c6a418f33cd57459"><div class="ttname"><a href="classRrc.html#a75e998ee115eb3d6c6a418f33cd57459">Rrc::write_pdu_bcch_dlsch</a></div><div class="ttdeci">void write_pdu_bcch_dlsch(srslte::unique_byte_buffer_t pdu) override</div><div class="ttdoc">Handle SIB1(SIB13) from BCCH/DLSCH, and set the scheduling info in PHY.</div><div class="ttdef"><b>Definition:</b> <a href="Rrc_8cpp_source.html#l00064">Rrc.cpp:64</a></div></div>
+<div class="ttc" id="aclassRrc_html_a1f229052df1551ef29f9260208f59fbd"><div class="ttname"><a href="classRrc.html#a1f229052df1551ef29f9260208f59fbd">Rrc::write_pdu_mch</a></div><div class="ttdeci">void write_pdu_mch(uint32_t lcid, srslte::unique_byte_buffer_t pdu) override</div><div class="ttdoc">Handle a MCH PDU.</div><div class="ttdef"><b>Definition:</b> <a href="Rrc_8cpp_source.html#l00031">Rrc.cpp:31</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
