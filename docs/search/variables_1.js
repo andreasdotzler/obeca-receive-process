@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sample_5ffile_28',['sample_file',['../structarguments.html#afd58a0608fd0793b5b8d1f469e8a79d8',1,'arguments']]]
+  ['file_5fbw_32',['file_bw',['../structarguments.html#a3d803ad8b37824dae55db77c9d108945',1,'arguments']]]
 ];

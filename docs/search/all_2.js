@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gw_4',['Gw',['../classGw.html',1,'']]]
+  ['file_5fbw_4',['file_bw',['../structarguments.html#a3d803ad8b37824dae55db77c9d108945',1,'arguments']]]
 ];

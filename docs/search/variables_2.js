@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['write_5fsample_5ffile_29',['write_sample_file',['../structarguments.html#a61982d3c831a338568195be59e9b2b99',1,'arguments']]]
+  ['log_5flevel_33',['log_level',['../structarguments.html#ac439599ddb6a8b80364d6c1497ffd641',1,'arguments']]]
 ];
