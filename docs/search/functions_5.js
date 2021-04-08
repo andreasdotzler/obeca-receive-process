@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['nr_5fprb_121',['nr_prb',['../classPhy.html#a161c6888d9d177958224244886fcc491',1,'Phy']]]
+  ['nof_5fmbsfn_5fprb_122',['nof_mbsfn_prb',['../classPhy.html#a66169222988d7ad89cb2b33ba743fe2b',1,'Phy']]],
+  ['nr_5fprb_123',['nr_prb',['../classPhy.html#a161c6888d9d177958224244886fcc491',1,'Phy']]]
 ];
